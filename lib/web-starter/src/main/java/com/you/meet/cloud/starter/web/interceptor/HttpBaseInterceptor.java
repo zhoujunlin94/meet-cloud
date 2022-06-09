@@ -1,9 +1,9 @@
 package com.you.meet.cloud.starter.web.interceptor;
 
-import com.you.meet.nice.lib.common.constant.CommonConstant;
-import com.you.meet.nice.lib.common.util.IPUtil;
-import com.you.meet.nice.lib.common.util.ProjectUtil;
-import com.you.meet.nice.lib.common.util.RequestIdUtil;
+import com.you.meet.cloud.lib.api.common.constant.CommonConstant;
+import com.you.meet.cloud.lib.api.common.util.IPUtil;
+import com.you.meet.cloud.lib.api.common.util.ProjectUtil;
+import com.you.meet.cloud.lib.api.common.util.RequestIdUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Lazy;

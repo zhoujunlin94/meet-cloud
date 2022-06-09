@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /memcache
+spring:
+  profiles:
+    active: local
+  application:
+    name: memcache

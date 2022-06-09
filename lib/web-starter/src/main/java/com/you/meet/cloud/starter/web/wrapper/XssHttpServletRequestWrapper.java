@@ -1,6 +1,6 @@
 package com.you.meet.cloud.starter.web.wrapper;
 
-import com.you.meet.nice.lib.common.util.JsoupUtil;
+import com.you.meet.cloud.lib.api.common.util.JsoupUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.ArrayUtils;
 

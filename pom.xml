@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>lib</module>
+        <module>memcache</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -73,6 +74,11 @@
                 <groupId>com.you.meet.cloud</groupId>
                 <artifactId>api-common</artifactId>
                 <version>${api-common}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>web-starter</artifactId>
+                <version>${web-starter}</version>
             </dependency>
 
             <dependency>

@@ -1,8 +1,8 @@
 package com.you.meet.cloud.starter.web.interceptor;
 
-import com.you.meet.nice.lib.common.exception.CommonErrorCode;
-import com.you.meet.nice.lib.common.util.JsonUtil;
-import com.you.meet.nice.lib.common.pojo.JsonResponse;
+import com.you.meet.cloud.lib.api.common.exception.CommonErrorCode;
+import com.you.meet.cloud.lib.api.common.pojo.JsonResponse;
+import com.you.meet.cloud.lib.api.common.util.JsonUtil;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletResponse;

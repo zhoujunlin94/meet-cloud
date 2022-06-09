@@ -1,8 +1,8 @@
 package com.you.meet.cloud.starter.web.handler;
 
-import com.you.meet.nice.lib.common.exception.CommonErrorCode;
-import com.you.meet.nice.lib.common.exception.MeetException;
-import com.you.meet.nice.lib.common.pojo.JsonResponse;
+import com.you.meet.cloud.lib.api.common.exception.CommonErrorCode;
+import com.you.meet.cloud.lib.api.common.exception.MeetException;
+import com.you.meet.cloud.lib.api.common.pojo.JsonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

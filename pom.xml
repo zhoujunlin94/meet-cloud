@@ -10,6 +10,7 @@
     <modules>
         <module>lib</module>
         <module>memcache</module>
+        <module>consumer</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -19,12 +19,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipTests>true</skipTests>
 
-        <base-db>1.0-SNAPSHOT</base-db>
         <api-common>1.0-SNAPSHOT</api-common>
         <rabbitmq-starter>1.0-SNAPSHOT</rabbitmq-starter>
         <redis-starter>1.0-SNAPSHOT</redis-starter>
         <web-starter>1.0-SNAPSHOT</web-starter>
-        <ws-starter>1.0-SNAPSHOT</ws-starter>
 
         <springboot>2.2.2.RELEASE</springboot>
         <springcloud>Hoxton.SR1</springcloud>
@@ -70,6 +68,12 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>api-common</artifactId>
+                <version>${api-common}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.you.meet.nice.starter.redis.AutoConfigure
+com.you.meet.cloud.starter.redis.AutoConfigure

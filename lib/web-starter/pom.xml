@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>lib</artifactId>
-        <groupId>com.you.meet.nice</groupId>
+        <groupId>com.you.meet.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>web-starter</artifactId>
-    <version>${web-starter.version}</version>
+    <version>${web-starter}</version>
 
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <artifactId>common</artifactId>
-            <groupId>com.you.meet.nice</groupId>
+            <groupId>com.you.meet.cloud</groupId>
+            <artifactId>api-common</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

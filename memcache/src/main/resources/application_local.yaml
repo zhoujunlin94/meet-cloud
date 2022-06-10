@@ -1,12 +1,11 @@
 spring:
   datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:p6spy:mysql://t.mysql.gaodunwangxiao.com:3306/yanzhi?useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+    username: gaodun_test
+    password: 414639e58d
     druid:
-      url: jdbc:mysql://192.168.56.101:3308/meet?useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
-      username: root
-      password: root
-
       ####初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
       initial-size: 10
       ####	最大连接池数量

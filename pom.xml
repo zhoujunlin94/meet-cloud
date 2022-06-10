@@ -51,7 +51,7 @@
         <mysql-connector-java>5.1.47</mysql-connector-java>
         <druid>1.2.8</druid>
         <mybatis-plus>3.5.1</mybatis-plus>
-        <p6spy>3.9.1</p6spy>
+        <p6spy>1.7.1</p6spy>
         <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
         <security-jwt>1.1.1.RELEASE</security-jwt>
         <jjwt>0.9.0</jjwt>
@@ -239,8 +239,8 @@
                 <version>${mybatis-plus}</version>
             </dependency>
             <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
+                <groupId>com.github.gavlyukovskiy</groupId>
+                <artifactId>p6spy-spring-boot-starter</artifactId>
                 <version>${p6spy}</version>
             </dependency>
             <dependency>

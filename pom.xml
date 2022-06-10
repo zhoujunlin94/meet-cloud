@@ -51,6 +51,7 @@
         <mysql-connector-java>5.1.47</mysql-connector-java>
         <druid>1.2.8</druid>
         <mybatis-plus>3.5.1</mybatis-plus>
+        <mybatis-plus-dynamic>2.5.0</mybatis-plus-dynamic>
         <p6spy>1.7.1</p6spy>
         <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
         <security-jwt>1.1.1.RELEASE</security-jwt>
@@ -237,6 +238,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${mybatis-plus-dynamic}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.gavlyukovskiy</groupId>

@@ -7,8 +7,3 @@ spring:
     active: local
   application:
     name: memcache
-
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml
-  global-config:
-    banner: false

@@ -13,6 +13,9 @@ public class CommonConstant {
     public static final String IMG_BASE64_PREFIX = "data:image/jpeg;base64,";
     public static final String DEFAULT_ERROR_VIEW = "error";
 
+    public static final String SWITCH_OPEN = "OPEN";
+    public static final String SWITCH_CLOSE = "CLOSE";
+
     /**
      * 时间相关常量
      */

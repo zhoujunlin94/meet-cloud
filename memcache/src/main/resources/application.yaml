@@ -7,3 +7,7 @@ spring:
     active: local
   application:
     name: memcache
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss

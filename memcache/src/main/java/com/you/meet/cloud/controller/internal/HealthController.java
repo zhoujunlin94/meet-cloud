@@ -20,7 +20,6 @@ public class HealthController {
 
     @GetMapping("/health2")
     public JsonResponse health2() {
-        int i = 1 / 0;
         return JsonResponse.ok(DateUtil.date());
     }
 

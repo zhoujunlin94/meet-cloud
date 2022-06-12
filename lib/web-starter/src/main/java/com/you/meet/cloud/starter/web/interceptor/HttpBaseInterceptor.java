@@ -1,5 +1,6 @@
 package com.you.meet.cloud.starter.web.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import com.you.meet.cloud.lib.api.common.constant.CommonConstant;
 import com.you.meet.cloud.lib.api.common.util.IPUtil;
 import com.you.meet.cloud.lib.api.common.util.ProjectUtil;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author zhoujl
@@ -25,7 +27,16 @@ public class HttpBaseInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        MDC.put(CommonConstant.REQUEST_ID, RequestIdUtil.requestId());
+        String requestId;
+        if (StrUtil.isBlank(request.getHeader(CommonConstant.REQUEST_ID))) {
+            requestId = RequestIdUtil.requestId();
+            request.setAttribute(CommonConstant.REQUEST_ID, requestId);
+        } else {
+            requestId = request.getHeader(CommonConstant.REQUEST_ID);
+        }
+        response.setHeader(CommonConstant.REQUEST_ID, requestId);
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        MDC.put(CommonConstant.REQUEST_ID, requestId);
         log.info("开始访问:{}", request.getRequestURL().toString());
         log.info("ip地址:{}", IPUtil.getIpAddr(request));
         request.setAttribute("startTime", System.currentTimeMillis());

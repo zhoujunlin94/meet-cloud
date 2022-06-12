@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 
 @RestControllerAdvice(
-        basePackages = {"com.you.meet.nice"}
+        basePackages = {"com.you.meet.cloud.controller"}
 )
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 

@@ -1,12 +1,8 @@
 spring:
-  jta:
-    transaction-manager-id: txManager
-    log-dir: /meet_cloud-logs/jta-tx-logs
   datasource:
-    type: com.alibaba.druid.pool.xa.DruidXADataSource
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     druid:
-      db-type: mysql
       base:
         name: base
         url: jdbc:mysql://192.168.154.100:3308/base?useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
@@ -56,5 +52,4 @@ spring:
       use-global-data-source-stat: true
 
 service-conf:
-  mybatis-conf:
-    log-switch: OPEN
+  demo: test

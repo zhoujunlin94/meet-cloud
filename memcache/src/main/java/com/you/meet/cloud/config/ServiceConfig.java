@@ -1,6 +1,5 @@
 package com.you.meet.cloud.config;
 
-import com.you.meet.cloud.config.pojo.MybatisConf;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +13,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "service-conf")
 public class ServiceConfig {
-
-    private MybatisConf mybatisConf;
 
 }

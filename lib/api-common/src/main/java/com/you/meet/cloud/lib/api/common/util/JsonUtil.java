@@ -1,5 +1,6 @@
 package com.you.meet.cloud.lib.api.common.util;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.PrettyPrinter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -32,7 +33,7 @@ public class JsonUtil {
         // 忽略无法转换的对象 “No serializer found for class com.xxx.xxx”
         OBJECT_MAPPER.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         // NULL不参与序列化
-        // OBJECT_MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        OBJECT_MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         // 指定时区，默认 UTC，而不是 jvm 默认时区
         OBJECT_MAPPER.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
     }

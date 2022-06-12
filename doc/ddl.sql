@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `meet_base` CHARACTER SET 'utf8mb4';
-USE `meet_base`;
+CREATE DATABASE IF NOT EXISTS `base` CHARACTER SET 'utf8mb4';
+USE `base`;
 CREATE TABLE IF NOT EXISTS `cache_cfg`
 (
     `key`   varchar(255) NOT NULL COMMENT '主键，配置key',

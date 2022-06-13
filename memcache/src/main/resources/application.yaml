@@ -4,7 +4,8 @@ server:
     context-path: /memcache
 spring:
   profiles:
-    active: local
+    #active: local
+    active: hp
   application:
     name: memcache
   jackson:

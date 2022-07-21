@@ -21,12 +21,20 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
-            <artifactId>api-common</artifactId>
+            <groupId>com.you.meet.nice</groupId>
+            <artifactId>common</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
+            <groupId>com.you.meet.nice</groupId>
             <artifactId>web-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.you.meet.nice</groupId>
+            <artifactId>rabbitmq-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.you.meet.nice</groupId>
+            <artifactId>redis-starter</artifactId>
         </dependency>
 
         <dependency>

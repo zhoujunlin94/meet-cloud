@@ -18,11 +18,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
-            <artifactId>api-common</artifactId>
+            <groupId>com.you.meet.nice</groupId>
+            <artifactId>common</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
+            <groupId>com.you.meet.nice</groupId>
             <artifactId>web-starter</artifactId>
         </dependency>
 

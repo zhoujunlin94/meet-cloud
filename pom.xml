@@ -20,10 +20,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipTests>true</skipTests>
 
-        <api-common>1.0-SNAPSHOT</api-common>
-        <rabbitmq-starter>1.0-SNAPSHOT</rabbitmq-starter>
-        <redis-starter>1.0-SNAPSHOT</redis-starter>
-        <web-starter>1.0-SNAPSHOT</web-starter>
+        <meet.common>1.0-SNAPSHOT</meet.common>
+        <meet.rabbitmq-starter>1.0-SNAPSHOT</meet.rabbitmq-starter>
+        <meet.redis-starter>1.0-SNAPSHOT</meet.redis-starter>
+        <meet.web-starter>1.0-SNAPSHOT</meet.web-starter>
 
         <springboot>2.2.2.RELEASE</springboot>
         <springcloud>Hoxton.SR1</springcloud>
@@ -49,9 +49,6 @@
 
         <mysql-connector-java>5.1.47</mysql-connector-java>
         <druid>1.2.8</druid>
-        <mybatis-plus>3.5.1</mybatis-plus>
-        <mybatis-plus-dynamic>2.5.0</mybatis-plus-dynamic>
-        <p6spy>1.7.1</p6spy>
         <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
         <security-jwt>1.1.1.RELEASE</security-jwt>
         <jjwt>0.9.0</jjwt>
@@ -59,7 +56,6 @@
         <netty-socketio>1.7.17</netty-socketio>
         <netty-socketio.client>1.0.0</netty-socketio.client>
         <thumbnailator>0.4.11</thumbnailator>
-        <elasticsearch>6.8.0</elasticsearch>
         <mybatis>2.2.2</mybatis>
         <tk.mybatis>2.0.0</tk.mybatis>
         <mybatis.ehcache>1.1.0</mybatis.ehcache>
@@ -72,17 +68,17 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
-                <artifactId>api-common</artifactId>
-                <version>${api-common}</version>
+                <groupId>com.you.meet.nice</groupId>
+                <artifactId>common</artifactId>
+                <version>${meet.common}</version>
             </dependency>
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
+                <groupId>com.you.meet.nice</groupId>
                 <artifactId>web-starter</artifactId>
-                <version>${web-starter}</version>
+                <version>${meet.web-starter}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -212,7 +208,6 @@
                 <artifactId>poi-ooxml</artifactId>
                 <version>${poi.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -234,26 +229,10 @@
                 <version>${mybatis.ehcache}</version>
             </dependency>
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${mybatis-plus-dynamic}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.gavlyukovskiy</groupId>
-                <artifactId>p6spy-spring-boot-starter</artifactId>
-                <version>${p6spy}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
@@ -291,21 +270,10 @@
             </dependency>
 
             <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>elasticsearch-rest-client</artifactId>
-                <version>${elasticsearch}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>elasticsearch-rest-high-level-client</artifactId>
-                <version>${elasticsearch}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redisson}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -324,6 +292,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

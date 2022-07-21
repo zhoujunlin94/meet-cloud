@@ -1,7 +1,7 @@
 package com.you.meet.cloud.controller.internal;
 
 import cn.hutool.core.date.DateUtil;
-import com.you.meet.cloud.lib.api.common.pojo.JsonResponse;
+import com.you.meet.nice.lib.common.pojo.JsonResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

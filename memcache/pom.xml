@@ -28,13 +28,10 @@
             <groupId>com.you.meet.nice</groupId>
             <artifactId>web-starter</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>com.you.meet.nice</groupId>
-            <artifactId>rabbitmq-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.you.meet.nice</groupId>
-            <artifactId>redis-starter</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
         <dependency>

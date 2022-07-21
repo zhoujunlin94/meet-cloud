@@ -10,6 +10,7 @@
     <modules>
         <module>memcache</module>
         <module>consumer</module>
+        <module>api-common</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -24,6 +25,8 @@
         <meet.rabbitmq-starter>1.0-SNAPSHOT</meet.rabbitmq-starter>
         <meet.redis-starter>1.0-SNAPSHOT</meet.redis-starter>
         <meet.web-starter>1.0-SNAPSHOT</meet.web-starter>
+
+        <api-common>1.0-SNAPSHOT</api-common>
 
         <springboot>2.2.2.RELEASE</springboot>
         <springcloud>Hoxton.SR1</springcloud>
@@ -79,6 +82,12 @@
                 <version>${meet.web-starter}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>api-common</artifactId>
+                <version>${api-common}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -94,6 +103,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- spring security oauth2依赖 -->
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
@@ -104,13 +120,6 @@
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${security-oauth2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${springcloud.alibaba}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
 
             <dependency>

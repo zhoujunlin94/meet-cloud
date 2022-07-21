@@ -1,22 +1,20 @@
-package com.you.meet.cloud;
+package com.you.meet.cloud.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author zhoujunlin
- * @date 2022年06月09日 17:02
+ * @date 2022年07月21日 16:07
  * @desc
  */
+@EnableFeignClients
 @EnableDiscoveryClient
-@EnableAspectJAutoProxy(exposeProxy = true)
 @SpringBootApplication
-public class AppMemCache {
-
+public class ConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AppMemCache.class, args);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
-
 }

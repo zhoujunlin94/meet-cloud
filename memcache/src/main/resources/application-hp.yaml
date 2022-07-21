@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -53,3 +57,5 @@ spring:
 
 service-conf:
   demo: test
+
+

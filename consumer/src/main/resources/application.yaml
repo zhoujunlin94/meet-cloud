@@ -1,0 +1,20 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /consumer
+spring:
+  profiles:
+    #active: local
+    active: hp
+  application:
+    name: consumer
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

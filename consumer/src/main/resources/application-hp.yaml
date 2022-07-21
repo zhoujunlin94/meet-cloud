@@ -1,0 +1,17 @@
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 60000
+        loggerLevel: full
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

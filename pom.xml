@@ -11,6 +11,7 @@
         <module>memcache</module>
         <module>consumer</module>
         <module>api-common</module>
+        <module>api-gateway</module>
     </modules>
 
     <packaging>pom</packaging>

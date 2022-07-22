@@ -28,6 +28,10 @@
         </dependency>
 
         <dependency>
+            <groupId>com.you.meet.cloud</groupId>
+            <artifactId>api-common</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.you.meet.nice</groupId>
             <artifactId>common</artifactId>
         </dependency>

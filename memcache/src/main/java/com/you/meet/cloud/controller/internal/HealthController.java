@@ -3,6 +3,7 @@ package com.you.meet.cloud.controller.internal;
 import cn.hutool.core.date.DateUtil;
 import com.you.meet.nice.lib.common.pojo.JsonResponse;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @desc
  */
 @RestController
+@RequestMapping("/health")
 public class HealthController {
 
     @GetMapping("/health")

@@ -37,7 +37,7 @@ default-character-set = utf8mb4
 docker run --name mysql57 \
     --restart always \
     --privileged=true \
-    -p 3305:3306 \
+    -p 3306:3306 \
     -v $PWD/mysql57/log:/var/log/mysql \
     -v $PWD/mysql57/conf/my.cnf:/etc/mysql/my.cnf \
     -v $PWD/mysql57/data:/var/lib/mysql \

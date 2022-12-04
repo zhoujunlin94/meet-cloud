@@ -1,28 +1,28 @@
-package com.you.meet.cloud.controller.internal;
+package com.you.meet.cloud.consumer.controller;
 
-import cn.hutool.core.date.DateUtil;
+import com.you.meet.cloud.consumer.feign.client.HealthService;
 import com.you.meet.nice.lib.common.pojo.JsonResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * @author zhoujunlin
- * @date 2022年06月11日 22:05
+ * @date 2022年12月04日 18:59
  * @desc
  */
 @RestController
-@RequestMapping("/health")
-public class HealthController {
+@RequestMapping
+public class TestController {
 
-    @GetMapping("/okStr")
-    public String okStr() {
-        return "ok";
-    }
+    @Resource
+    private HealthService helloService;
 
     @GetMapping("/okJson")
     public JsonResponse okJson() {
-        return JsonResponse.ok(DateUtil.date());
+        return helloService.okJson();
     }
 
 }

@@ -9,9 +9,3 @@ feign:
         connectTimeout: 10000
         readTimeout: 60000
         loggerLevel: full
-
-spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848

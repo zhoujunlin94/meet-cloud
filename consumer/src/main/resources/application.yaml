@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8000
 spring:
   profiles:
     #active: local
@@ -10,6 +10,10 @@ spring:
     default-property-inclusion: non_null
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
 
 management:
   endpoints:

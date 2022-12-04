@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @desc
  */
 @FeignClient(value = "memcache")
-public interface HealthService {
+public interface MemcacheClient {
 
     @GetMapping("/health/okJson")
     JsonResponse okJson();

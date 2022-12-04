@@ -4,8 +4,6 @@ spring:
   profiles:
     #active: local
     active: hp
-  application:
-    name: consumer
   jackson:
     default-property-inclusion: non_null
     time-zone: GMT+8

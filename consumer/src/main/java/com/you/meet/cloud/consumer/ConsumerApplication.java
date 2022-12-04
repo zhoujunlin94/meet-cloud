@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @date 2022年07月21日 16:07
  * @desc
  */
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.you.meet.cloud.consumer.feign.client"})
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ConsumerApplication {

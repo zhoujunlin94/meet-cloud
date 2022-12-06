@@ -35,10 +35,6 @@
             <groupId>com.you.meet.nice</groupId>
             <artifactId>common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.you.meet.nice</groupId>
-            <artifactId>web-starter</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

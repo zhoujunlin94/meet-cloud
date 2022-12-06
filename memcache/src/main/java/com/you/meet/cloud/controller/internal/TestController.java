@@ -19,7 +19,7 @@ public class TestController {
 
     @GetMapping("/echo")
     public JsonResponse echo() {
-        return JsonResponse.ok(serviceConfig.toString());
+        return JsonResponse.ok().setData(serviceConfig);
     }
 
 }

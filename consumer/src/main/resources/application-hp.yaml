@@ -9,3 +9,9 @@ feign:
         connectTimeout: 10000
         readTimeout: 60000
         loggerLevel: full
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

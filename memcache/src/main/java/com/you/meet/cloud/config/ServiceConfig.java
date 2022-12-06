@@ -14,4 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "service-conf")
 public class ServiceConfig {
 
+    private String name;
+
 }

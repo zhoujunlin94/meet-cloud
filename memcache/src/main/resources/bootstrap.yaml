@@ -1,0 +1,25 @@
+server:
+  port: 9000
+  tomcat:
+    max-threads: 200
+
+spring:
+  application:
+    name: memcache
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
+      config:
+        # namespace区分微服务
+        namespace: 6719e0eb-305d-49ec-ad07-67493dbc6a71
+        # group 区分环境
+        group: test
+        server-addr: 124.221.56.164:8848
+        ext-config:
+          - dataId: datasource.yml
+            group: test
+            refresh: true
+          - dataId: serviceconf.yml
+            group: test
+            refresh: true

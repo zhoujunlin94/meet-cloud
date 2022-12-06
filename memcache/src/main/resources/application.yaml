@@ -1,22 +1,8 @@
-server:
-  port: 9000
 spring:
   profiles:
     #active: local
     active: hp
-  application:
-    name: memcache
   jackson:
     default-property-inclusion: non_null
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 124.221.56.164:8848
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'

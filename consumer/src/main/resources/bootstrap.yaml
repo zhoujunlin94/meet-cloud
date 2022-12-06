@@ -1,7 +1,12 @@
+server:
+  port: 8000
+
 spring:
   application:
     name: consumer
   cloud:
     nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
       config:
         server-addr: 124.221.56.164:8848

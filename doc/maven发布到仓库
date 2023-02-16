@@ -1,0 +1,11 @@
+父模块pom上传
+mvn deploy -N
+
+子模块jar上传
+mvn clean install -pl <moduleName> org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
+
+mvn clean install -pl common org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
+mvn clean install -pl rabbitmq-starter org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
+mvn clean install -pl redis-starter org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
+mvn clean install -pl web-starter org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
+mvn clean install -pl ws-starter org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests

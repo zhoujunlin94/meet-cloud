@@ -17,6 +17,7 @@
 
     <modules>
 
+        <module>meet-common</module>
     </modules>
 
 </project>

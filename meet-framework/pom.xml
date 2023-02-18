@@ -6,7 +6,7 @@
     <parent>
         <artifactId>meet_cloud</artifactId>
         <groupId>com.you.meet.cloud</groupId>
-        <version>${meet.version}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <packaging>pom</packaging>
 

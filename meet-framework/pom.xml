@@ -16,8 +16,8 @@
     </description>
 
     <modules>
-
         <module>meet-common</module>
+        <module>meet-web</module>
     </modules>
 
 </project>

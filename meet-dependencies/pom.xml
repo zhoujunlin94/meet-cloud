@@ -88,6 +88,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 自定义组件 -->
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>meet-common</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>meet-web</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

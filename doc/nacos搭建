@@ -14,4 +14,4 @@ docker run -d \
     -e MYSQL_SERVICE_PASSWORD=root \
     -e MYSQL_SERVICE_DB_NAME=nacos_config \
     --restart=always \
-    nacos/nacos-server:v2.1.0
+    nacos/nacos-server:v2.0.4

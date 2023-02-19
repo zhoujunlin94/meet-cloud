@@ -1,13 +1,13 @@
-package com.you.meet.cloud.provider.api;
+package com.you.meet.cloud.consumer.biz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProviderApiApplication {
+public class ConsumerBizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProviderApiApplication.class, args);
+        SpringApplication.run(ConsumerBizApplication.class, args);
     }
 
 }

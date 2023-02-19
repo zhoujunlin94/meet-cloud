@@ -18,7 +18,7 @@ public enum CommonErrorCode implements ErrorCode {
      * P开头 参数错误信息
      * B开头 业务错误信息
      */
-    S_SUC(0, "正常返回"),
+    S_SUC(0, "success"),
     S_FAIL(1, "失败"),
     S_SYSTEM_BUSY(5000, "系统繁忙，请稍后再试!"),
     S_OVER_CALLED(5001, "接口访问超出频率限制"),

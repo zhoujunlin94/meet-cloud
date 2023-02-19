@@ -2,8 +2,10 @@ package com.you.meet.cloud.common.pojo;
 
 import com.you.meet.cloud.common.exception.CommonErrorCode;
 import com.you.meet.cloud.common.util.JsonUtil;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -14,6 +16,8 @@ import java.io.Serializable;
  * @Description json格式响应
  **/
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder(toBuilder = true)
 @Accessors(chain = true)
 public class JSONResponse implements Serializable {
@@ -26,10 +30,6 @@ public class JSONResponse implements Serializable {
 
     public static JSONResponse ok() {
         return JSONResponse.builder().code(CommonErrorCode.S_SUC.getCode()).msg(CommonErrorCode.S_SUC.getMsg()).build();
-    }
-
-    public static JSONResponse ok(String msg) {
-        return JSONResponse.builder().code(CommonErrorCode.S_SUC.getCode()).msg(msg).build();
     }
 
     public static JSONResponse ok(Object data) {

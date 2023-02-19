@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: consumer-biz
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
+server:
+  port: 28080
+
+

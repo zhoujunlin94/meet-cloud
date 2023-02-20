@@ -25,4 +25,16 @@ public class TestController {
         return resultMap;
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
+    @GetMapping("/sleep")
+    public String sleep() throws InterruptedException {
+        // 测试熔断
+        Thread.sleep(100L);
+        return "哈哈哈sleep";
+    }
+
 }

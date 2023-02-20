@@ -1,5 +1,6 @@
 package com.you.meet.cloud.web.handler;
 
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.you.meet.cloud.common.exception.CommonErrorCode;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
@@ -39,6 +40,12 @@ public class GlobalExceptionHandler {
             jsonResponse.setMsg(error.getDefaultMessage());
         }
         return jsonResponse;
+    }
+
+
+    @ExceptionHandler(value = BlockException.class)
+    public JSONResponse handleBlockException(BlockException blockException) {
+        return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("请求被拦截，拦截类型为 " + blockException.getClass().getSimpleName()).build();
     }
 
     @ExceptionHandler({MeetException.class})

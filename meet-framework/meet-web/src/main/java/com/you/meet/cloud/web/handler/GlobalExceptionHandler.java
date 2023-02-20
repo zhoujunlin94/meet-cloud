@@ -47,10 +47,10 @@ public class GlobalExceptionHandler {
         return JSONResponse.builder().code(e.getCode()).data(e.getData()).msg(e.getMsg()).build();
     }
 
-    /*@ExceptionHandler({Exception.class})
+    @ExceptionHandler({Exception.class})
     public JSONResponse handleUnHandlerException(Exception e, HttpServletResponse response) {
         return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("接口异常，请联系管理员！").build();
-    }*/
+    }
 
     @ExceptionHandler({ConstraintViolationException.class})
     public JSONResponse handleValidException(ConstraintViolationException e, HttpServletResponse response) {

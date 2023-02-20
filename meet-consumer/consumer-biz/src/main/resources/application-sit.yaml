@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
+        namespace: 5dda1a11-b00c-42b7-a19a-0290cc1218b5

@@ -1,0 +1,9 @@
+0. 查看所有端点
+http://127.0.0.1:28080/actuator
+
+1. 健康信息
+http://127.0.0.1:28080/actuator/health
+
+2. nacos服务发现
+http://127.0.0.1:28080/actuator/nacosdiscovery
+

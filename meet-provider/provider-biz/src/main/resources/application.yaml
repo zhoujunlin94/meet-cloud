@@ -1,13 +1,8 @@
 spring:
   application:
     name: provider-biz
-  cloud:
-    nacos:
-      # nacos作为注册中心配置项
-      discovery:
-        server-addr: 124.221.56.164:8848
-        # 注册到nacos的服务名  默认值为spring.application.name
-        service: ${spring.application.name}
+  profiles:
+    active: dev
 
 server:
   port: 18080

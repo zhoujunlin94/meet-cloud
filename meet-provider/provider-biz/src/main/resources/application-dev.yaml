@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      # nacos作为注册中心配置项
+      discovery:
+        server-addr: 124.221.56.164:8848
+        # 注册到nacos的服务名  默认值为spring.application.name
+        service: ${spring.application.name}
+        # dev环境namespace id
+        namespace: 05257248-7336-4cd2-97b6-d1b1836e25db

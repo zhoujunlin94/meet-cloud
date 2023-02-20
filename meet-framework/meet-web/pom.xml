@@ -20,8 +20,8 @@
 
     <dependencies>
         <dependency>
-            <artifactId>common</artifactId>
-            <groupId>com.you.meet.nice</groupId>
+            <artifactId>meet-common</artifactId>
+            <groupId>com.you.meet.cloud</groupId>
         </dependency>
 
         <dependency>

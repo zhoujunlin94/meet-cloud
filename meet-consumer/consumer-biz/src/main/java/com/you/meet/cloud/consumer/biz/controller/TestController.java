@@ -3,6 +3,9 @@ package com.you.meet.cloud.consumer.biz.controller;
 import cn.hutool.core.collection.CollUtil;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
+import com.you.meet.cloud.consumer.biz.feign.client.ProviderClient;
+import java.util.Objects;
+import javax.annotation.Resource;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.Resource;
-import java.util.Objects;
 
 /**
  * @author zhoujunlin
@@ -22,7 +22,8 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-
+    @Resource
+    private ProviderClient providerClient;
     @Resource
     private DiscoveryClient discoveryClient;
     @Resource
@@ -37,6 +38,11 @@ public class TestController {
         }
         String targetUrl = serviceInstance.getUri() + "/test/echo/" + msg;
         return restTemplate.getForObject(targetUrl, JSONResponse.class);
+    }
+
+    @GetMapping("/echo2/{msg}")
+    public JSONResponse echo2(@PathVariable("msg") String msg) {
+        return providerClient.echo(msg);
     }
 
 }

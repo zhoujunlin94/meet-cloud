@@ -1,4 +1,4 @@
-1. 执行nacos_init脚本  （mysql5.7）
+1. 执行nacos_mysql脚本  （mysql5.7）
 
 2. 启动nacos容器
 docker run -d \

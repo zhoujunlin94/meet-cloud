@@ -4,6 +4,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.you.meet.cloud.common.exception.CommonErrorCode;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Iterator;
 import java.util.Optional;
 import javax.validation.ConstraintViolation;
@@ -50,6 +51,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({Exception.class})
     public JSONResponse handleUnknownException(Exception e) {
         log.error("未知异常:", e);
+        if (e instanceof UndeclaredThrowableException) {
+            Throwable undeclaredThrowable = ((UndeclaredThrowableException) e).getUndeclaredThrowable();
+            if (undeclaredThrowable instanceof BlockException) {
+                return handleBlockException((BlockException) undeclaredThrowable);
+            }
+        }
         return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("接口异常，请联系管理员！").build();
     }
 

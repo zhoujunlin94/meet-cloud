@@ -56,6 +56,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({Exception.class})
     public JSONResponse handleUnHandlerException(Exception e, HttpServletResponse response) {
+        log.error("未知异常:", e);
         return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("接口异常，请联系管理员！").build();
     }
 

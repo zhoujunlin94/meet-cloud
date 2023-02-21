@@ -23,7 +23,8 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
                                   @NonNull ServerHttpRequest request, @NonNull ServerHttpResponse response) {
         body = body instanceof JSONResponse ? body : JSONResponse.builder().code(CommonErrorCode.S_SUC.getCode()).
                 msg(CommonErrorCode.S_SUC.getMsg()).data(body).build();
-        return body;
+        return MediaType.APPLICATION_JSON.equals(selectedContentType) || MediaType.APPLICATION_JSON_UTF8.equals(selectedContentType)
+                ? body : body.toString();
     }
 
     @Override

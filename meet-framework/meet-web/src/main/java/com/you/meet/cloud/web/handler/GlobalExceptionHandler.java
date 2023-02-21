@@ -6,17 +6,14 @@ import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
 import java.util.Iterator;
 import java.util.Optional;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
@@ -29,10 +26,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
 
-
     @ExceptionHandler({MethodArgumentNotValidException.class})
-    @ResponseStatus(HttpStatus.OK)
-    public JSONResponse handleUnProcessableException(MethodArgumentNotValidException e) {
+    public JSONResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         Iterator<ObjectError> errorIterator = e.getBindingResult().getAllErrors().iterator();
         JSONResponse jsonResponse = JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).data(e.getMessage()).build();
         if (errorIterator.hasNext()) {
@@ -42,26 +37,24 @@ public class GlobalExceptionHandler {
         return jsonResponse;
     }
 
-
     @ExceptionHandler(value = BlockException.class)
     public JSONResponse handleBlockException(BlockException blockException) {
-        return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("请求被拦截，拦截类型为 " + blockException.getClass().getSimpleName()).build();
+        return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("请求被拦截,拦截类型为 " + blockException.getClass().getSimpleName()).build();
     }
 
     @ExceptionHandler({MeetException.class})
-    @ResponseStatus(HttpStatus.OK)
-    public JSONResponse handleUnProcessableException(MeetException e) {
+    public JSONResponse handleMeetException(MeetException e) {
         return JSONResponse.builder().code(e.getCode()).data(e.getData()).msg(e.getMsg()).build();
     }
 
     @ExceptionHandler({Exception.class})
-    public JSONResponse handleUnHandlerException(Exception e, HttpServletResponse response) {
+    public JSONResponse handleUnknownException(Exception e) {
         log.error("未知异常:", e);
         return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("接口异常，请联系管理员！").build();
     }
 
     @ExceptionHandler({ConstraintViolationException.class})
-    public JSONResponse handleValidException(ConstraintViolationException e, HttpServletResponse response) {
+    public JSONResponse handleConstraintViolationException(ConstraintViolationException e) {
         Optional<ConstraintViolation<?>> constraintViolation = e.getConstraintViolations().stream().findFirst();
         String messageTemplate = "";
         if (constraintViolation.isPresent()) {
@@ -69,6 +62,5 @@ public class GlobalExceptionHandler {
         }
         return JSONResponse.builder().code(CommonErrorCode.P_PARAM_CHECK_ERROR.getCode()).msg("参数校验未通过!").data(messageTemplate).build();
     }
-
 
 }

@@ -1,5 +1,6 @@
 package com.you.meet.cloud.provider.biz.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,18 @@ public class TestController {
         // 测试熔断
         Thread.sleep(100L);
         return "哈哈哈sleep";
+    }
+
+    /**
+     * 热点资源配置
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/product_info")
+    @SentinelResource("demo_product_info_hot")
+    public String productInfo(Integer id) {
+        return "商品编号：" + id;
     }
 
 }

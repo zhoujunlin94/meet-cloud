@@ -3,6 +3,7 @@ package com.you.meet.cloud.provider.biz.controller;
 import cn.hutool.core.util.RandomUtil;
 import com.you.meet.cloud.provider.biz.message.MySource;
 import com.you.meet.cloud.provider.biz.message.entity.Demo01Message;
+import org.apache.rocketmq.common.message.MessageConst;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,15 @@ public class MessageController {
     private boolean send() {
         Demo01Message demo01Message = new Demo01Message().setId(RandomUtil.randomInt());
         Message<Demo01Message> demo01SpringMsg = MessageBuilder.withPayload(demo01Message).build();
+        return mySource.demo01Output().send(demo01SpringMsg);
+    }
+
+    @GetMapping("/sendDelay")
+    private boolean sendDelay() {
+        Demo01Message demo01Message = new Demo01Message().setId(RandomUtil.randomInt());
+        Message<Demo01Message> demo01SpringMsg = MessageBuilder.withPayload(demo01Message)
+                // 延迟级别3  10s后消费
+                .setHeader(MessageConst.PROPERTY_DELAY_TIME_LEVEL, "3").build();
         return mySource.demo01Output().send(demo01SpringMsg);
     }
 

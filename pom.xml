@@ -13,7 +13,6 @@
         <module>meet-dependencies</module>
         <module>meet-framework</module>
         <module>meet-provider</module>
-        <module>meet-web</module>
     </modules>
 
     <name>${project.artifactId}</name>

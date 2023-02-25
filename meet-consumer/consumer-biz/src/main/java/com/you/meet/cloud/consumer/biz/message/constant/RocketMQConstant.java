@@ -8,5 +8,6 @@ package com.you.meet.cloud.consumer.biz.message.constant;
 public class RocketMQConstant {
 
     public static final String DEMO01_INPUT_BINDING = "demo01-input";
+    public static final String DEMO02_INPUT_BINDING = "demo02-input";
 
 }

@@ -3,6 +3,19 @@ spring:
     nacos:
       discovery:
         server-addr: 124.221.56.164:8848
-        namespace: 05257248-7336-4cd2-97b6-d1b1836e25db
+        namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
+    # Sentinel 配置项，对应 SentinelProperties 配置属性类
+    sentinel:
+      enabled: true
+      # 设置是否饥饿加载，默认为 false 关闭。默认情况下，Sentinel 是延迟初始化，在首次使用到 Sentinel 才进行初始化。通过设置为 true 时，在项目启动时就会将 Sentinel 直接初始化，完成向 Sentinel 控制台进行注册。
+      eager: true
+      transport:
+        dashboard: 192.168.56.10:8858
+      # 设置拦截请求的地址
+      filter:
+        url-patterns: /**
 
-
+feign:
+  sentinel:
+    # 开启 Sentinel 对 Feign 的支持，默认为 false 关闭。
+    enabled: true

@@ -7,7 +7,7 @@ spring:
         # 注册到nacos的服务名  默认值为spring.application.name
         service: ${spring.application.name}
         # dev环境namespace id
-        namespace: 05257248-7336-4cd2-97b6-d1b1836e25db
+        namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
     # Sentinel 配置项，对应 SentinelProperties 配置属性类
     sentinel:
       enabled: true
@@ -23,7 +23,7 @@ spring:
         ds1:
           nacos:
             server-addr: 124.221.56.164:8848 # Nacos 服务器地址
-            namespace: 05257248-7336-4cd2-97b6-d1b1836e25db # Nacos 命名空间
+            namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a  # Nacos 命名空间
             data-id: ${spring.application.name}-flow-rule # Nacos 配置集编号
             data-type: json # 数据格式
             rule-type: FLOW # 规则类型

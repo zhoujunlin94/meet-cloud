@@ -40,7 +40,11 @@ spring:
         demo03-input:
           destination: DEMO-TOPIC-03
           content-type: application/json
-          group: demo03-consumer-group-DEMO-TOPIC-01-y
+          group: demo03-consumer-group-DEMO-TOPIC-03
+        demo04-input:
+          destination: DEMO-TOPIC-04
+          content-type: application/json
+          group: demo04-consumer-group-DEMO-TOPIC-04
       # Spring Cloud Stream RocketMQ 配置项
       rocketmq:
         # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
@@ -70,6 +74,9 @@ spring:
               push:
                 # 是否顺序消费，默认为 false 并发消费。
                 orderly: true
+          demo04-input:
+            consumer:
+              message-model: CLUSTERING
 
 feign:
   sentinel:

@@ -19,4 +19,7 @@ public interface MySink {
 
     @Input(RocketMQConstant.DEMO03_INPUT_BINDING)
     SubscribableChannel demo03Input();
+
+    @Input(RocketMQConstant.DEMO04_INPUT_BINDING)
+    SubscribableChannel demo04Input();
 }

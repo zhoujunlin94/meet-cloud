@@ -1,8 +1,10 @@
 package com.you.meet.cloud.provider.biz.controller;
 
 import cn.hutool.core.util.RandomUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.you.meet.cloud.provider.biz.message.MySource;
 import com.you.meet.cloud.provider.biz.message.entity.Demo01Message;
+import lombok.Data;
 import org.apache.rocketmq.common.message.MessageConst;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -66,6 +68,28 @@ public class MessageController {
             mySource.demo01Output().send(springMessage);
         }
         return true;
+    }
+
+
+    @GetMapping("/sendTransaction")
+    public boolean sendTransaction() {
+        // 创建 Message
+        Demo01Message message = new Demo01Message()
+                .setId(new Random().nextInt());
+        // 创建 Spring Message 对象
+        Args args = new Args().setArgs1(1).setArgs2("2");
+        Message<Demo01Message> springMessage = MessageBuilder.withPayload(message)
+                .setHeader("args", JSONObject.toJSONString(args))
+                .build();
+        // 发送消息
+        return mySource.demo04Output().send(springMessage);
+    }
+
+    @Data
+    public static class Args {
+
+        private Integer args1;
+        private String args2;
     }
 
 }

@@ -38,6 +38,12 @@ public class DemoListener {
         //log.info("[onMessage3][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
     }
 
+    @StreamListener(RocketMQConstant.DEMO04_INPUT_BINDING)
+    public void onMessage4(Message<?> message) {
+        // 顺序消息
+        log.info("[onMessage4][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
+    }
+
     /**
      * 局部异常处理
      * topic.group.errors

@@ -10,3 +10,8 @@ http://127.0.0.1:28080/actuator/nacosdiscovery
 3. sentinel端点
 http://127.0.0.1:28080/actuator/sentinel
 
+4. rocketmq相关
+http://127.0.0.1:13362/actuator/bindings
+http://127.0.0.1:13362/actuator/channels
+
+

@@ -17,4 +17,7 @@ public interface MySource {
     @Output(RocketMQConstant.DEMO03_OUTPUT_BINDING)
     MessageChannel demo03Output();
 
+    @Output(RocketMQConstant.DEMO04_OUTPUT_BINDING)
+    MessageChannel demo04Output();
+
 }

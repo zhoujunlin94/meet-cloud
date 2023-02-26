@@ -42,6 +42,9 @@ spring:
           producer:
             # 分区 key 表达式。该表达式基于 Spring EL，从消息中获得分区 key。
             partition-key-expression: payload['id']
+        demo04-output:
+          destination: DEMO-TOPIC-04
+          content-type: application/json
       # Spring Cloud Stream RocketMQ 配置项
       rocketmq:
         # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
@@ -62,6 +65,13 @@ spring:
               group: demo03-provider-group-DEMO-TOPIC-03
               # 消息发送方式
               send-type: Sync
+          demo04-output:
+            producer:
+              group: demo04-provider-group-DEMO-TOPIC-04
+              # 消息发送方式
+              send-type: Sync
+              # 消息发送方式  事务消息
+              producer-type: Trans
 
 
 

@@ -36,6 +36,12 @@ spring:
           destination: DEMO-TOPIC-01
           # 内容格式。这里使用 JSON
           content-type: application/json
+        demo03-output:
+          destination: DEMO-TOPIC-03
+          content-type: application/json
+          producer:
+            # 分区 key 表达式。该表达式基于 Spring EL，从消息中获得分区 key。
+            partition-key-expression: payload['id']
       # Spring Cloud Stream RocketMQ 配置项
       rocketmq:
         # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
@@ -49,8 +55,13 @@ spring:
             producer:
               # 同一类 Producer 的集合，这类 Producer 发送同一类消息且发送逻辑一致。如果发送的是事务消息且原始生产者在发送之后崩溃，则 Broker 服务器会联系同一生产者组的其他生产者实例以提交或回溯消费。
               group: demo01-provider-group-DEMO-TOPIC-01
-              # 是否同步发送消息，默认为 false 异步。
-              sync: true
+              # 消息发送方式
+              send-type: Sync
+          demo03-output:
+            producer:
+              group: demo03-provider-group-DEMO-TOPIC-03
+              # 消息发送方式
+              send-type: Sync
 
 
 

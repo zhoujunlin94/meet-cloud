@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Random;
 
 /**
  * @author zhoujunlin
@@ -39,6 +40,32 @@ public class MessageController {
                 // 延迟级别3  10s后消费
                 .setHeader(MessageConst.PROPERTY_DELAY_TIME_LEVEL, "3").build();
         return mySource.demo01Output().send(demo01SpringMsg);
+    }
+
+    @GetMapping("/sendOrderly")
+    private boolean sendOrderly() {
+        Demo01Message demo01Message = new Demo01Message().setId(RandomUtil.randomInt());
+        Message<Demo01Message> demo01SpringMsg = MessageBuilder.withPayload(demo01Message).build();
+        for (int i = 0; i < 3; i++) {
+            mySource.demo03Output().send(demo01SpringMsg);
+        }
+        return true;
+    }
+
+    @GetMapping("/sendTag")
+    private boolean sendTag() {
+        for (String tag : new String[]{"normal", "orderly", "con"}) {
+            // 创建 Message
+            Demo01Message message = new Demo01Message()
+                    .setId(new Random().nextInt()).setTag(tag);
+            // 创建 Spring Message 对象
+            Message<Demo01Message> springMessage = MessageBuilder.withPayload(message)
+                    .setHeader(MessageConst.PROPERTY_TAGS, tag) // <X> 设置 Tag
+                    .build();
+            // 发送消息
+            mySource.demo01Output().send(springMessage);
+        }
+        return true;
     }
 
 }

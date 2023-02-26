@@ -12,4 +12,5 @@ public class Demo01Message {
 
     private Integer id;
 
+    private String tag;
 }

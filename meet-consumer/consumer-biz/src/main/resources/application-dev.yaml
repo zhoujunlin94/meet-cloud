@@ -36,7 +36,11 @@ spring:
           # 内容格式。这里使用 JSON
           content-type: application/json
           # 消费者分组
-          group: demo02-consumer-group-DEMO-TOPIC-01
+          group: demo02-consumer-group-DEMO-TOPIC-01-x
+        demo03-input:
+          destination: DEMO-TOPIC-03
+          content-type: application/json
+          group: demo03-consumer-group-DEMO-TOPIC-01-y
       # Spring Cloud Stream RocketMQ 配置项
       rocketmq:
         # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
@@ -52,6 +56,8 @@ spring:
               enabled: true
               # 消费模式
               message-model: CLUSTERING
+              # tag订阅消息过滤
+              subscription: normal || con
               push:
                 # 异步消费消息模式下消费失败重试策略，默认为 0  -1：不重复，直接放入死信队列  0：RocketMQ Broker 控制重试策略
                 # 如果无法保证消费重试不会带来副作用，也就是说无法保证消费的幂等性，建议关闭消费重试功能，即设置 delay-level-when-next-consume 配置项为 -1，max-attempts 配置项为 1。
@@ -59,6 +65,11 @@ spring:
           demo02-input:
             consumer:
               message-model: BROADCASTING
+          demo03-input:
+            consumer:
+              push:
+                # 是否顺序消费，默认为 false 并发消费。
+                orderly: true
 
 feign:
   sentinel:

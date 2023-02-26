@@ -5,6 +5,7 @@ import com.you.meet.cloud.consumer.biz.message.entity.Demo01Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.support.ErrorMessage;
 import org.springframework.stereotype.Component;
@@ -18,17 +19,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoListener {
 
-    @StreamListener(RocketMQConstant.DEMO01_INPUT_BINDING)
-    public void onMessage1(@Payload Demo01Message message) {
+    @StreamListener(value = RocketMQConstant.DEMO01_INPUT_BINDING, condition = "headers['ROCKET_TAGS'] == 'normal'")
+    public void onMessage1(Message<?> message) {
         log.info("[onMessage1][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
         // <X> 注意，此处抛出一个 RuntimeException 异常，模拟消费失败
         //throw new RuntimeException("我就是故意抛出一个异常");
     }
 
-    //@StreamListener(RocketMQConstant.DEMO02_INPUT_BINDING)
+    @StreamListener(RocketMQConstant.DEMO02_INPUT_BINDING)
     public void onMessage2(@Payload Demo01Message message) {
         // 广播消息
-        log.info("[onMessage2][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
+        //log.info("[onMessage2][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
+    }
+
+    @StreamListener(RocketMQConstant.DEMO03_INPUT_BINDING)
+    public void onMessage3(Message<?> message) {
+        // 顺序消息
+        //log.info("[onMessage3][线程编号:{} 消息内容：{}]", Thread.currentThread().getId(), message);
     }
 
     /**

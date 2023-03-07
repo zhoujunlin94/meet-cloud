@@ -14,4 +14,6 @@ http://127.0.0.1:28080/actuator/sentinel
 http://127.0.0.1:13362/actuator/bindings
 http://127.0.0.1:13362/actuator/channels
 
+5. nacos配置中心
+http://127.0.0.1:19329/actuator/nacosconfig
 

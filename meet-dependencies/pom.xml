@@ -84,6 +84,8 @@
         <modelmapper.version>2.3.5</modelmapper.version>
         <pagehelper.version>5.1.11</pagehelper.version>
         <openfeign.version>11.0</openfeign.version>
+
+        <jasypt.version>3.0.2</jasypt.version>
     </properties>
 
     <dependencyManagement>
@@ -518,6 +520,12 @@
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-gson</artifactId>
                 <version>${openfeign.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

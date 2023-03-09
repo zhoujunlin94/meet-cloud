@@ -5,6 +5,7 @@ import com.you.meet.cloud.consumer.biz.feign.fallback.factory.ProviderBizClientF
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author zhoujunlin
@@ -20,5 +21,9 @@ public interface ProviderBizClient {
 
     @GetMapping("/test/test")
     JSONResponse test();
+
+
+    @GetMapping("/echo")
+    String echoName(@RequestParam String name);
 
 }

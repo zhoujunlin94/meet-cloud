@@ -27,4 +27,9 @@ public class ProviderBizClientFallback implements ProviderBizClient {
     public JSONResponse test() {
         return this.fallbackResp;
     }
+
+    @Override
+    public String echoName(String name) {
+        return this.fallbackResp.getMsg();
+    }
 }

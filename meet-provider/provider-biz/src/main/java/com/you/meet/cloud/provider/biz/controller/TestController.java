@@ -7,6 +7,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +20,24 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2023年02月19日 20:27
  * @desc
  */
+@Slf4j
 @RestController
 @RequestMapping("/test")
 public class TestController {
+
+    @Value("${server.port}")
+    private Integer serverPort;
+
+    @GetMapping("/echo")
+    public String echoName(@RequestParam String name) throws InterruptedException {
+        // 模拟执行 100ms 时长。方便后续我们测试请求超时
+        Thread.sleep(100L);
+
+        // 记录被调用的日志
+        log.info("[echo][被调用啦 name({})]", name);
+
+        return serverPort + "-provider:" + name;
+    }
 
     @GetMapping("/echo/{msg}")
     public Map<String, Object> echo(@PathVariable("msg") String msg) {

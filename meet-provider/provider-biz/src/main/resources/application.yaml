@@ -5,6 +5,4 @@ spring:
     active: dev
 
 server:
-  port: 18080
-
-
+  port: ${random.int[10000,19999]}

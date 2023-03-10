@@ -23,7 +23,7 @@ public interface ProviderBizClient {
     JSONResponse test();
 
 
-    @GetMapping("/echo")
-    String echoName(@RequestParam String name);
+    @GetMapping("/test/echo")
+    String echoName(@RequestParam(value = "name") String name);
 
 }

@@ -3,7 +3,7 @@ package com.you.meet.cloud.consumer.biz.config;
 import cn.hutool.core.util.StrUtil;
 import com.you.meet.cloud.common.pojo.RequestContext;
 import com.you.meet.cloud.common.util.RequestIdUtil;
-import com.you.meet.cloud.common.util.ThreadLocalUtil;
+import com.you.meet.cloud.common.util.RequestContextUtil;
 import feign.RequestInterceptor;
 import java.util.Objects;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ public class FeignConfig {
     public RequestInterceptor feignHeaderInterceptor() {
         return requestTemplate -> {
             String requestId = StrUtil.EMPTY;
-            RequestContext requestContext = (RequestContext) ThreadLocalUtil.get();
+            RequestContext requestContext = RequestContextUtil.get();
             if (Objects.nonNull(requestContext)) {
                 requestId = requestContext.getRequestId();
             }

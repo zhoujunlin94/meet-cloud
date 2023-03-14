@@ -1,5 +1,6 @@
 package com.you.meet.cloud.common.pojo;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +20,7 @@ public class RequestContext {
     private String requestId;
 
     private String clientIP;
+
+    private JSONObject extJSONObject;
 
 }

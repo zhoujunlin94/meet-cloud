@@ -21,6 +21,7 @@ public class RequestContext {
 
     private String clientIP;
 
-    private JSONObject extJSONObject;
+    @Builder.Default
+    private JSONObject extJSONObject = new JSONObject();
 
 }

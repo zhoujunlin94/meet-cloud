@@ -8,15 +8,13 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <property resource="config.properties"/>
     <!--
        %d表示日期时间,  %thread表示线程名,
-   %-5level：级别从左显示5个字符宽度
-   %logger{50} 表示logger名字最长50个字符，否则按照句点分割。
-   %msg：日志消息，
-   %n是换行符
+        %-5level：级别从左显示5个字符宽度, %logger{50} 表示logger名字最长50个字符，否则按照句点分割。
+        %msg：日志消息，%n是换行符
     -->
     <property name="FILE_LOG_PATTERN"
-              value="%X - %d{yyyy-MM-dd HH:mm:ss.SSS}|%thread|%-5level|%logger{80}|%method|%line -> %msg%n"/>
-    <property name="maxHistory" value="10"/>
-    <property name="maxFileSize" value="500MB"/>
+              value="%X{requestId} - %d{yyyy-MM-dd HH:mm:ss.SSS}|%thread|%-5level|%logger{80}|%method|%line -> %msg%n"/>
+    <property name="maxHistory" value="365"/>
+    <property name="maxFileSize" value="100MB"/>
     <!--定义日志根目录-->
     <substitutionProperty name="LOG_HOME" value="${LOG_HOME}"/>
     <!--定义日志文件名称-->
@@ -28,8 +26,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             <level>debug</level>
         </filter>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}
-            </pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
             <charset>utf-8</charset>
         </encoder>
     </appender>
@@ -47,8 +44,8 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}
-            </pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
@@ -70,9 +67,14 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}
-            </pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
         </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
     </appender>
 
     <appender name="warn_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -86,8 +88,8 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}
-            </pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
@@ -107,8 +109,8 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}
-            </pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>

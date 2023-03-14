@@ -1,7 +1,9 @@
 package com.you.meet.cloud.web.interceptor;
 
+import com.you.meet.cloud.common.pojo.RequestContext;
 import com.you.meet.cloud.common.util.RequestIdUtil;
 import com.you.meet.cloud.common.util.ServletUtils;
+import com.you.meet.cloud.common.util.ThreadLocalUtil;
 import com.you.meet.cloud.web.helper.ProjectHelper;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,9 +24,12 @@ public class HttpBaseInterceptor extends BaseInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        MDC.put(RequestIdUtil.REQUEST_ID, RequestIdUtil.requestId());
+        RequestContext requestContext = RequestContext.builder().requestId(RequestIdUtil.requestId()).clientIP(ServletUtils.getClientIP()).build();
+        ThreadLocalUtil.set(requestContext);
+
+        MDC.put(RequestIdUtil.REQUEST_ID, requestContext.getRequestId());
         log.info("开始访问:{}", request.getRequestURL().toString());
-        log.info("ip地址:{}", ServletUtils.getClientIP());
+        log.info("ip地址:{}", requestContext.getClientIP());
         request.setAttribute("startTime", System.currentTimeMillis());
         request.setAttribute("ctx", ProjectHelper.getProjectBasePath(request));
         return true;
@@ -36,5 +41,6 @@ public class HttpBaseInterceptor extends BaseInterceptor {
         long end = System.currentTimeMillis();
         log.info("结束加载请求:{},总用时:{}ms", request.getRequestURL().toString(), end - start);
         MDC.remove(RequestIdUtil.REQUEST_ID);
+        ThreadLocalUtil.remove();
     }
 }

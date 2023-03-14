@@ -1,11 +1,13 @@
 package com.you.meet.cloud.consumer.biz.config;
 
+import cn.hutool.core.util.StrUtil;
+import com.you.meet.cloud.common.pojo.RequestContext;
+import com.you.meet.cloud.common.util.RequestIdUtil;
+import com.you.meet.cloud.common.util.ThreadLocalUtil;
 import feign.RequestInterceptor;
 import java.util.Objects;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * @author zhoujunlin
@@ -18,10 +20,13 @@ public class FeignConfig {
     @Bean
     public RequestInterceptor feignHeaderInterceptor() {
         return requestTemplate -> {
-            ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            if (Objects.isNull(requestAttributes)) {
-                return;
+            String requestId = StrUtil.EMPTY;
+            RequestContext requestContext = (RequestContext) ThreadLocalUtil.get();
+            if (Objects.nonNull(requestContext)) {
+                requestId = requestContext.getRequestId();
             }
+            requestId = StrUtil.isBlank(requestId) ? RequestIdUtil.requestId() : requestId;
+            requestTemplate.header(RequestIdUtil.REQUEST_ID, requestId);
         };
     }
 

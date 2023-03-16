@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
+    gateway:
+      # 路由配置项，对应 RouteDefinition 数组
+      routes:
+        - id: demo1  # 路由的唯一编号
+          uri: http://www.baidu.com  #路由到的目标地址
+          predicates: #断言  作为路由的匹配条件  对应RouteDefinition数组
+            - Path=/baidu
+          filters:
+            - StripPrefix=1  #StripPrefix 会将请求的 Path 去除掉前缀 即127.0.0.1/baidu->http://www.baidu.com/baidu->http://www.baidu.com
+        - id: demo2
+          uri: http://www.oschina.net
+          predicates:
+            - Path=/oschina
+          filters:
+            - StripPrefix=1
+      discovery:
+        # 与 Spring Cloud 注册中心的集成，对应 DiscoveryLocatorProperties 类
+        locator:
+          enabled: true
+          # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"   一般不建议注册中心的方式路由  它会将所有注册服务接入网关
+          url-expression: "'lb://'+serviceId"
+
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
+        service: ${spring.application.name}
+        namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
+

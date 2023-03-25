@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
+    gateway:
+      # 路由配置项，对应 RouteDefinition 数组
+      routes:
+        - id: user-service-prod
+          uri: http://www.iocoder.cn
+          #第一个参数为权重分组，需要配置成相同，一般和服务名相同即可；第二个参数为权重比例。
+          predicates:
+            - Path=/**
+            - Weight=user-service, 90
+        - id: user-service-canary
+          uri: https://www.oschina.net
+          predicates:
+            - Path=/**
+            - Weight=user-service, 10
+

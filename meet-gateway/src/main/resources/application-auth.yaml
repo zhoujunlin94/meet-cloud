@@ -16,9 +16,9 @@ spring:
             - Path=/oschina
           filters:
             - StripPrefix=1
-      discovery:
-        # 与 Spring Cloud 注册中心的集成，对应 DiscoveryLocatorProperties 类
-        locator:
-          enabled: true
-          # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"   一般不建议注册中心的方式路由  它会将所有注册服务接入网关
-          url-expression: "'lb://'+serviceId"
+      default-filters:
+        # 过滤器名。这里我们设置为 Auth，因为 Gateway 默认使用 XXXGatewayFilterFactory 的前缀 XXX 为名字，因此 AuthGatewayFilterFactory 就是 Auth。
+        - name: Auth
+          args:
+            token-header-name: access-token
+

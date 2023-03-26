@@ -21,3 +21,6 @@ spring:
             - Path=/oschina
           filters:
             - StripPrefix=1
+            - name: Auth
+              args:
+                token-header-name: access-token

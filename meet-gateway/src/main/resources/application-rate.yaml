@@ -1,26 +1,31 @@
-spring:
-  cloud:
-    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
-    gateway:
-      # 路由配置项，对应 RouteDefinition 数组
-      routes:
-        - id: demo1  # 路由的唯一编号
-          uri: http://www.baidu.com  #路由到的目标地址
-          predicates: #断言  作为路由的匹配条件  对应RouteDefinition数组
-            - Path=/baidu
-          filters:
-            - StripPrefix=1  #StripPrefix 会将请求的 Path 去除掉前缀 即127.0.0.1/baidu->http://www.baidu.com/baidu->http://www.baidu.com
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1 # 令牌桶的每秒放的数量
-                redis-rate-limiter.burstCapacity: 2 # 令牌桶的最大令牌数
-                key-resolver: "#{@ipKeyResolver}" # 获取限流 KEY 的 Bean 的名字
-        - id: demo2
-          uri: http://www.oschina.net
-          predicates:
-            - Path=/oschina
-          filters:
-            - StripPrefix=1
-            - name: Auth
-              args:
-                token-header-name: access-token
+#  放到注册中心
+#spring:
+#  cloud:
+#    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
+#    gateway:
+#      # 路由配置项，对应 RouteDefinition 数组
+#      routes:
+#        - id: demo1  # 路由的唯一编号
+#          uri: http://www.baidu.com  #路由到的目标地址
+#          predicates: #断言  作为路由的匹配条件  对应RouteDefinition数组
+#            - Path=/baidu
+#          filters:
+#            - StripPrefix=1  #StripPrefix 会将请求的 Path 去除掉前缀 即127.0.0.1/baidu->http://www.baidu.com/baidu->http://www.baidu.com
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 1 # 令牌桶的每秒放的数量
+#                redis-rate-limiter.burstCapacity: 2 # 令牌桶的最大令牌数
+#                key-resolver: "#{@ipKeyResolver}" # 获取限流 KEY 的 Bean 的名字
+#        - id: demo2
+#          uri: http://www.oschina.net
+#          predicates:
+#            - Path=/oschina
+#          filters:
+#            - StripPrefix=1
+#            - name: Auth
+#              args:
+#                token-header-name: access-token
+#logging:
+#  level:
+#    reactor.netty: DEBUG
+#    org.springframework.cloud.gateway: TRACE

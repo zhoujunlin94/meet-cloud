@@ -1,4 +1,4 @@
-1. 执行nacos_mysql脚本  （mysql5.7）
+1. 执行nacos_mysql脚本  mysql5.7
 
 2. 启动nacos容器
 docker run -d \
@@ -8,8 +8,8 @@ docker run -d \
     -p 9849:9849 \
     -e MODE=standalone \
     -e SPRING_DATASOURCE_PLATFORM=mysql \
-    -e MYSQL_SERVICE_HOST=124.221.56.164 \
-    -e MYSQL_SERVICE_PORT=3306 \
+    -e MYSQL_SERVICE_HOST=192.168.1.7 \
+    -e MYSQL_SERVICE_PORT=3308 \
     -e MYSQL_SERVICE_USER=root \
     -e MYSQL_SERVICE_PASSWORD=root \
     -e MYSQL_SERVICE_DB_NAME=nacos_config \

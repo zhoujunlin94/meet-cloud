@@ -1,7 +1,6 @@
 mysql57
 
-cd /home/zhoujunlin/docker/volume
-mkdir -p $PWD/mysql57/{conf,data,log}
+mkdir -p /data/mysql57/{conf,data,log}
 vi $PWD/mysql57/conf/my.cnf
 
 [mysqld]
@@ -49,8 +48,8 @@ docker run --name mysql57 \
 
 
 mysql8
-cd /home/zhoujunlin/docker/volume
-mkdir -p $PWD/mysql8/{conf,data,log}
+
+mkdir -p /data/mysql8/{conf,data,log}
 vi $PWD/mysql8/conf/my.cnf
 
 [mysqld]
@@ -82,7 +81,6 @@ default-character-set = utf8mb4
 
 [client]
 default-character-set = utf8mb4
-
 
 docker run --name mysql8 \
     --restart always \

@@ -1,12 +1,13 @@
+mkdir /data/rediscluster
+cd /data/rediscluster
 #搭建网桥
-[root@master docker]# docker network create redis-net
+docker network create redis-net
 #查看网桥
-[root@master docker]# docker network ls
-[root@master docker]# docker network inspect redis-net
+docker network ls
+docker network inspect redis-net
 
-#编写Redis配置文件
-[root@master docker]# cd /root/docker/redis-cluster
-[root@master docker]# vim  redis-cluster.tmpl
+#编写Redis配置文件模板
+vi redis-cluster.tmpl
 
 port ${PORT}
 requirepass rediscluster
@@ -17,44 +18,43 @@ appendonly yes
 cluster-enabled yes
 cluster-config-file nodes.conf
 cluster-node-timeout 15000
-cluster-announce-ip 192.168.56.101
+cluster-announce-ip 192.168.56.10
 cluster-announce-port ${PORT}
 cluster-announce-bus-port 1${PORT}
 
 #循环创建目录
-[root@master docker]# for port in `seq 8001 8006`; do \
-  mkdir -p ${port}/conf \
-  && PORT=${port} envsubst < redis-cluster.tmpl > ${port}/conf/redis.conf \
-  && mkdir -p ${port}/data;\
+for port in `seq 8001 8006`; do \
+  mkdir -p $PWD/${port}/conf \
+  && PORT=${port} envsubst < $PWD/redis-cluster.tmpl > $PWD/${port}/conf/redis.conf \
+  && mkdir -p $PWD/${port}/data;\
 done
 
 #查看创建的目录
-[root@master docker]# yum install -y tree
-[root@master docker]# tree
+yum install -y tree
+tree
 #查看编写的配置文件
-[root@master docker]# cat /root/docker/redis-cluster/800{1..6}/conf/redis.conf
+cat $PWD/800{1..6}/conf/redis.conf
 #循环创建容器
-[root@master docker]# for port in $(seq 8001 8006); do \
-  docker run -di -p ${port}:${port} -p 1${port}:1${port} \
-  --restart always --name redis-${port} --net redis-net \
-  -v /root/docker/redis-cluster/${port}/conf/redis.conf:/usr/local/etc/redis/redis.conf \
-  -v /root/docker/redis-cluster/${port}/data:/data \
+for port in $(seq 8001 8006); do \
+  docker run -id -p ${port}:${port} -p 1${port}:1${port} \
+    --restart always --name redis-${port} --net redis-net \
+    -v $PWD/${port}/conf/redis.conf:/usr/local/etc/redis/redis.conf \
+    -v $PWD/${port}/data:/data \
   redis:6.2.2  redis-server /usr/local/etc/redis/redis.conf; \
 done
 
 #查看分配的网络
-[root@master redis-cluster]# docker network inspect redis-net | grep -i -E "name|ipv4address"
+docker network inspect redis-net | grep -i -E "name|ipv4address"
+
 #进入8001
-[root@master redis-cluster]# docker exec -it redis-8001 bash
-    容器中执行 建立集群
-    cd /usr/local/bin/
-    redis-cli -a rediscluster --cluster create 172.18.0.2:8001 172.18.0.3:8002 172.18.0.4:8003 172.18.0.5:8004 172.18.0.6:8005 172.18.0.7:8006 --cluster-replicas 1
-    容器中查看
-    redis-cli -a  rediscluster  --cluster  check 192.168.56.101:8001
-    容器中 进入redis-cli
-    redis-cli -c -a rediscluster -h redis-8001 -p 8001
-    cluster info
-    cluster nodes
+docker exec -it redis-8001 bash
+容器中执行 建立集群
+cd /usr/local/bin/
+redis-cli -a rediscluster --cluster create 172.18.0.2:8001 172.18.0.3:8002 172.18.0.4:8003 172.18.0.5:8004 172.18.0.6:8005 172.18.0.7:8006 --cluster-replicas 1
+redis-cli -a  rediscluster  --cluster  check 192.168.56.10:8001
+redis-cli -c -a rediscluster -h redis-8001 -p 8001
+cluster info
+cluster nodes
 
 
 

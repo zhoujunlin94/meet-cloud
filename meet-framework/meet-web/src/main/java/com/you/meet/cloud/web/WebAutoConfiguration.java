@@ -26,15 +26,15 @@ public class WebAutoConfiguration {
 
     @Bean
     public HttpMessageConverter fastJsonHttpMessageConverter() {
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig jsonConfig = new FastJsonConfig();
         //设置时区
         TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
+
+        FastJsonConfig jsonConfig = new FastJsonConfig();
         //日期格式
         jsonConfig.setDateFormat(DatePattern.NORM_DATETIME_PATTERN);
         //特性设置
         jsonConfig.setFeatures(
-                Feature.OrderedField,
+                //Feature.OrderedField,
                 Feature.IgnoreNotMatch
         );
         jsonConfig.setSerializerFeatures(
@@ -63,6 +63,8 @@ public class WebAutoConfiguration {
         fastMediaTypes.add(MediaType.APPLICATION_JSON);
         fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         fastMediaTypes.add(MediaType.valueOf("text/json;charset=UTF-8"));
+
+        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
         fastConverter.setSupportedMediaTypes(fastMediaTypes);
         fastConverter.setFastJsonConfig(jsonConfig);
 

@@ -1,4 +1,4 @@
-package com.you.meet.nice.lib.common.util;
+package com.you.meet.cloud.common.util;
 
 import cn.hutool.core.util.StrUtil;
 

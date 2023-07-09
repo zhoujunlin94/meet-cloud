@@ -1,13 +1,14 @@
 package com.you.meet.cloud.web.helper;
 
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import java.io.PrintWriter;
-import java.util.Objects;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+import java.util.Objects;
 
 /**
  * @Author zhoujl

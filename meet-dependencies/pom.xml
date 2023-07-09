@@ -398,6 +398,10 @@
     </dependencyManagement>
 
     <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2251328-release-gRPLpp/</url>
+        </repository>
         <snapshotRepository>
             <id>rdc-snapshots</id>
             <url>https://packages.aliyun.com/maven/repository/2251328-snapshot-UHwYed/</url>

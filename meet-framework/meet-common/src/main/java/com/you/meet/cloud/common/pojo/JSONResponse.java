@@ -1,12 +1,11 @@
 package com.you.meet.cloud.common.pojo;
 
+import com.alibaba.fastjson.JSONObject;
 import com.you.meet.cloud.common.exception.CommonErrorCode;
-import com.you.meet.cloud.common.util.JsonUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -19,7 +18,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@Accessors(chain = true)
 public class JSONResponse implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +48,6 @@ public class JSONResponse implements Serializable {
 
     @Override
     public String toString() {
-        return JsonUtil.parseObj2Str(this);
+        return JSONObject.toJSONString(this);
     }
 }

@@ -2,6 +2,7 @@ package com.you.meet.cloud.web.handler;
 
 import com.you.meet.cloud.common.exception.CommonErrorCode;
 import com.you.meet.cloud.common.pojo.JSONResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,9 +12,9 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-
+@Slf4j
 @RestControllerAdvice(
-        basePackages = {"com.you.meet.cloud"}
+        basePackages = {"com.you.meet.nice"}
 )
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
@@ -23,8 +24,10 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
                                   @NonNull ServerHttpRequest request, @NonNull ServerHttpResponse response) {
         body = body instanceof JSONResponse ? body : JSONResponse.builder().code(CommonErrorCode.S_SUC.getCode()).
                 msg(CommonErrorCode.S_SUC.getMsg()).data(body).build();
-        return MediaType.APPLICATION_JSON.equals(selectedContentType) || MediaType.APPLICATION_JSON_UTF8.equals(selectedContentType)
+        Object result = MediaType.APPLICATION_JSON.equals(selectedContentType) || MediaType.APPLICATION_JSON_UTF8.equals(selectedContentType)
                 ? body : body.toString();
+        log.warn("当前接口响应内容:{}", result);
+        return result;
     }
 
     @Override

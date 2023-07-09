@@ -163,7 +163,7 @@ public class QRCodeUtil {
         ImageIO.write(image, FORMAT_NAME, baos);
         //转换成base64串
         String jpgBase64 = Base64Encoder.encode(baos.toByteArray()).trim();
-        String file = EncryptUtil.MD5Str(jpgBase64) + ".jpg";
+        String file = EncryptUtil.encryptMD5(jpgBase64) + ".jpg";
         ImageIO.write(image, FORMAT_NAME, new File(destPath + "/" + file));
     }
 

@@ -26,6 +26,7 @@ public enum CommonErrorCode implements ErrorCode {
     B_UN_LOGIN(4001, "未登录"),
     B_UN_AUTHORIZATION(4003, "未授权"),
     B_NOT_FOUND(4004, "数据不存在"),
+    B_AUTHORIZATION_FAILED(4005, "授权失败"),
 
     P_BAD_PARAMETER(4005, "参数错误"),
     P_PARAM_CHECK_ERROR(4006, "参数校验出错"),

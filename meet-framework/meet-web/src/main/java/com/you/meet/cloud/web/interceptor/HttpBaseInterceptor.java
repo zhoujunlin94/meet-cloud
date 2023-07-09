@@ -28,17 +28,18 @@ public class HttpBaseInterceptor extends BaseInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestId = request.getHeader(RequestIdUtil.REQUEST_ID);
         if (StrUtil.isBlank(requestId)) {
-            requestId = RequestIdUtil.requestId();
+            requestId = RequestIdUtil.generateRequestId();
         }
         RequestContext requestContext = RequestContext.builder().requestId(requestId).clientIP(ServletUtils.getClientIP()).build();
         RequestContextUtil.set(requestContext);
 
         MDC.put(RequestIdUtil.REQUEST_ID, requestId);
-        log.info("开始访问:{}", request.getRequestURL().toString());
-        log.info("ip地址:{}", requestContext.getClientIP());
+        response.addHeader(RequestIdUtil.REQUEST_ID, requestId);
+
+        log.warn("开始访问:{} {}", request.getMethod(), request.getRequestURL().toString());
+        log.warn("ip地址:{}", requestContext.getClientIP());
         request.setAttribute("startTime", System.currentTimeMillis());
         request.setAttribute("ctx", ProjectHelper.getProjectBasePath(request));
-        response.addHeader(RequestIdUtil.REQUEST_ID, requestId);
         return true;
     }
 
@@ -47,10 +48,18 @@ public class HttpBaseInterceptor extends BaseInterceptor {
         try {
             long start = (long) request.getAttribute("startTime");
             long end = System.currentTimeMillis();
-            log.info("结束加载请求:{},总用时:{}ms", request.getRequestURL().toString(), end - start);
+            log.warn("结束加载请求:{},总用时:{}ms", request.getRequestURL().toString(), end - start);
         } finally {
-            MDC.remove(RequestIdUtil.REQUEST_ID);
-            RequestContextUtil.remove();
+            try {
+                MDC.remove(RequestIdUtil.REQUEST_ID);
+            } catch (Exception ignore) {
+            }
+            try {
+                RequestContextUtil.remove();
+            } catch (Exception ignore) {
+
+            }
         }
     }
+
 }

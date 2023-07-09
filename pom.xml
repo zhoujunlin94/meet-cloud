@@ -10,14 +10,15 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>meet-consumer</module>
         <module>meet-dependencies</module>
         <module>meet-framework</module>
-        <module>meet-provider</module>
         <module>meet-gateway</module>
+        <module>meet-provider</module>
     </modules>
 
     <name>${project.artifactId}</name>
-    <description>我的微服务初探</description>
+    <description>meet with springcloud</description>
 
     <properties>
         <meet.version>1.0-SNAPSHOT</meet.version>
@@ -27,11 +28,10 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <lombok.version>1.18.24</lombok.version>
         <spring.boot.version>2.7.8</spring.boot.version>
-        <mapstruct.version>1.5.3.Final</mapstruct.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -73,11 +73,6 @@
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
                                 <version>${lombok.version}</version>
-                            </path>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
                             </path>
                         </annotationProcessorPaths>
                     </configuration>

@@ -22,68 +22,61 @@
         <spring.boot.version>2.7.8</spring.boot.version>
         <spring.cloud.version>2021.0.5</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
-        <!-- Web 相关 -->
-        <swagger-annotations.version>1.6.8</swagger-annotations.version>
-        <servlet.versoin>2.5</servlet.versoin>
-        <!-- DB 相关 -->
-        <druid.version>1.2.15</druid.version>
+
         <redisson.version>3.18.0</redisson.version>
-        <!-- RPC 相关 -->
+
         <!-- Job 定时任务相关 -->
         <xxl-job.version>2.3.1</xxl-job.version>
-        <!-- 服务保障相关 -->
-        <resilience4j.version>1.7.1</resilience4j.version>
-        <!-- 监控相关 -->
-        <skywalking.version>8.12.0</skywalking.version>
-        <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
-        <opentracing.version>0.33.0</opentracing.version>
+
         <!-- 工具类相关 -->
         <jsoup.version>1.15.3</jsoup.version>
         <lombok.version>1.18.24</lombok.version>
-        <mapstruct.version>1.5.3.Final</mapstruct.version>
         <hutool.version>5.8.11</hutool.version>
         <easyexcel.verion>3.2.0</easyexcel.verion>
+        <poi.version>5.0.0</poi.version>
         <velocity.version>2.3</velocity.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <jackson.version>2.10.3</jackson.version>
+
         <guava.version>31.1-jre</guava.version>
         <guice.version>5.1.0</guice.version>
+        <zxing.version>3.3.0</zxing.version>
+
         <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
-        <commons-net.version>3.8.0</commons-net.version>
+
         <jsch.version>0.1.55</jsch.version>
         <tika-core.version>2.6.0</tika-core.version>
-        <netty-all.version>4.1.86.Final</netty-all.version>
+        <thumbnailator.version>0.4.11</thumbnailator.version>
         <ip2region.version>2.6.6</ip2region.version>
-        <!-- 三方云服务相关 -->
-        <okio.version>3.0.0</okio.version>
+
         <okhttp3.version>4.10.0</okhttp3.version>
+        <openfeign.version>11.0</openfeign.version>
+
         <minio.version>8.5.1</minio.version>
-        <justauth.version>1.4.0</justauth.version>
 
         <commons.lang>2.6</commons.lang>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <commons.io>2.4</commons.io>
         <commons-collections4.version>4.2</commons-collections4.version>
-        <jackson.version>2.10.3</jackson.version>
-        <poi.version>5.0.0</poi.version>
+        <commons-net.version>3.8.0</commons-net.version>
+
         <pinyin4j.version>2.5.0</pinyin4j.version>
+
         <slf4j.version>1.7.25</slf4j.version>
-        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
+
         <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
         <security-jwt-version>1.1.1.RELEASE</security-jwt-version>
         <jjwt-version>0.9.0</jjwt-version>
-        <zxing.version>3.3.0</zxing.version>
-        <swagger.version>2.9.2</swagger.version>
+
+        <netty-all.version>4.1.86.Final</netty-all.version>
         <netty-socketio.version>1.7.17</netty-socketio.version>
         <netty-socketio.client.version>1.0.0</netty-socketio.client.version>
-        <thumbnailator.version>0.4.11</thumbnailator.version>
+
         <elasticsearch.version>6.8.0</elasticsearch.version>
+        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <mybatis.version>2.2.2</mybatis.version>
         <tk.mybatis.version>2.0.0</tk.mybatis.version>
         <mybatis.ehcache.version>1.1.0</mybatis.ehcache.version>
-        <redisson.version>3.12.5</redisson.version>
-        <modelmapper.version>2.3.5</modelmapper.version>
         <pagehelper.version>5.1.11</pagehelper.version>
-        <openfeign.version>11.0</openfeign.version>
 
         <jasypt.version>3.0.2</jasypt.version>
     </properties>
@@ -125,9 +118,6 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- 业务组件 自定义starter-->
-
-            <!-- Spring 核心 -->
             <dependency>
                 <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
                 <groupId>org.springframework.boot</groupId>
@@ -136,26 +126,10 @@
             </dependency>
 
             <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger-annotations.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
-
-            <!-- Registry 注册中心相关 -->
-
-            <!-- Config 配置中心相关 -->
 
             <!-- Job 定时任务相关 -->
             <dependency>
@@ -164,210 +138,41 @@
                 <version>${xxl-job.version}</version>
             </dependency>
 
-            <!-- 消息队列相关 -->
-
-            <!-- 服务保障相关 -->
-            <dependency>
-                <groupId>io.github.resilience4j</groupId>
-                <artifactId>resilience4j-ratelimiter</artifactId>
-                <version>${resilience4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.resilience4j</groupId>
-                <artifactId>resilience4j-spring-boot2</artifactId>
-                <version>${resilience4j.version}</version>
-            </dependency>
-
-            <!-- 监控相关 -->
-            <dependency>
-                <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-trace</artifactId>
-                <version>${skywalking.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-logback-1.x</artifactId>
-                <version>${skywalking.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-opentracing</artifactId>
-                <version>${skywalking.version}</version>
-                <!--                <exclusions>-->
-                <!--                    <exclusion>-->
-                <!--                        <artifactId>opentracing-api</artifactId>-->
-                <!--                        <groupId>io.opentracing</groupId>-->
-                <!--                    </exclusion>-->
-                <!--                    <exclusion>-->
-                <!--                        <artifactId>opentracing-util</artifactId>-->
-                <!--                        <groupId>io.opentracing</groupId>-->
-                <!--                    </exclusion>-->
-                <!--                </exclusions>-->
-            </dependency>
-            <dependency>
-                <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-api</artifactId>
-                <version>${opentracing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-util</artifactId>
-                <version>${opentracing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-noop</artifactId>
-                <version>${opentracing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-
-            <!-- Test 测试相关 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>asm</artifactId>
-                        <groupId>org.ow2.asm</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.mockito</groupId>
-                        <artifactId>mockito-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
             <!-- 工具类相关 -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
-                <version>${mapstruct.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>easyexcel</artifactId>
-                <version>${easyexcel.verion}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tika</groupId>
-                <artifactId>tika-core</artifactId> <!-- 文件类型的识别 -->
-                <version>${tika-core.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.inject</groupId>
-                <artifactId>guice</artifactId>
-                <version>${guice.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
-                <version>${transmittable-thread-local.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId> <!-- 解决 ftp 连接 -->
-                <version>${commons-net.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.jcraft</groupId>
-                <artifactId>jsch</artifactId> <!-- 解决 sftp 连接 -->
-                <version>${jsch.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty-all.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.lionsoul</groupId>
-                <artifactId>ip2region</artifactId>
-                <version>${ip2region.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
             </dependency>
-
-            <!-- 三方云服务相关 -->
             <dependency>
-                <groupId>com.squareup.okio</groupId>
-                <artifactId>okio</artifactId>
-                <version>${okio.version}</version>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp3.version}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>${minio.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.verion}</version>
             </dependency>
-
             <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons.lang}</version>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -385,14 +190,79 @@
                 <version>${jackson.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.belerweb</groupId>
-                <artifactId>pinyin4j</artifactId>
-                <version>${pinyin4j.version}</version>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>${commons-collections4.version}</version>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${guice.version}</version>
+            </dependency>
+            <!--二维码生成-->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- 解决 sftp 连接 -->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+            <!-- 文件类型的识别 -->
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-gson</artifactId>
+                <version>${openfeign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -400,30 +270,29 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <!-- 解决 ftp 连接 -->
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>${pinyin4j.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>log4j-over-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper-spring-boot-starter</artifactId>
-                <version>${tk.mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.caches</groupId>
-                <artifactId>mybatis-ehcache</artifactId>
-                <version>${mybatis.ehcache.version}</version>
-            </dependency>
+
             <!-- spring security oauth2依赖 -->
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
@@ -447,48 +316,23 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt-version}</version>
             </dependency>
-            <!--二维码生成-->
+
             <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>core</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>javase</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.corundumstudio.socketio</groupId>
                 <artifactId>netty-socketio</artifactId>
                 <version>${netty-socketio.version}</version>
             </dependency>
-            <!-- socket.io客户端 -->
             <dependency>
                 <groupId>io.socket</groupId>
                 <artifactId>socket.io-client</artifactId>
                 <version>${netty-socketio.client.version}</version>
             </dependency>
-            <dependency>
-                <groupId>net.coobird</groupId>
-                <artifactId>thumbnailator</artifactId>
-                <version>${thumbnailator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>${poi.version}</version>
-            </dependency>
+
             <!-- Java Low Level REST Client -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
@@ -501,31 +345,54 @@
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elasticsearch.version}</version>
             </dependency>
+
             <dependency>
-                <groupId>org.modelmapper</groupId>
-                <artifactId>modelmapper</artifactId>
-                <version>${modelmapper.version}</version>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.caches</groupId>
+                <artifactId>mybatis-ehcache</artifactId>
+                <version>${mybatis.ehcache.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${openfeign.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-gson</artifactId>
-                <version>${openfeign.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.version}</version>
+            </dependency>
+
+            <!-- Test 测试相关 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>asm</artifactId>
+                        <groupId>org.ow2.asm</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

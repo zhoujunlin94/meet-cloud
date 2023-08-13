@@ -27,7 +27,7 @@ import java.util.Optional;
  **/
 @Slf4j
 @RestControllerAdvice
-@Order(value = Ordered.HIGHEST_PRECEDENCE)
+@Order(value = Ordered.LOWEST_PRECEDENCE)
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({MethodArgumentNotValidException.class})

@@ -16,7 +16,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,11 +63,10 @@ public class EndpointLogAspect {
             if (Method.POST.toString().equalsIgnoreCase(method) || Method.PUT.toString().equalsIgnoreCase(method)) {
                 Object[] args = pjp.getArgs();
                 for (Object arg : args) {
-                    if (arg instanceof Serializable && !(arg instanceof MultipartFile)) {
+                    if (!(arg instanceof MultipartFile)) {
                         log.warn("RequestBody: {}", JSONObject.toJSONString(arg));
                     }
                 }
-
             }
 
             Map<String, String[]> parameterMap = request.getParameterMap();

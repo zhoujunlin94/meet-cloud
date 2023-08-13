@@ -9,10 +9,10 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 @EnableDiscoveryClient
 @EnableBinding(MySource.class)
 @SpringBootApplication
-public class ProviderBizApplication {
+public class ProviderDemo01Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProviderBizApplication.class, args);
+        SpringApplication.run(ProviderDemo01Application.class, args);
     }
 
 }

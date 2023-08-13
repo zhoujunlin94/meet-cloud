@@ -15,6 +15,7 @@
         <module>meet-framework</module>
         <module>meet-gateway</module>
         <module>meet-provider</module>
+        <module>meet-test</module>
     </modules>
 
     <name>${project.artifactId}</name>

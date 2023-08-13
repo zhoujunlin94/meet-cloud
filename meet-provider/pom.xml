@@ -17,8 +17,7 @@
     </description>
 
     <modules>
-        <module>provider-api</module>
-        <module>provider-biz</module>
+        <module>provider-demo01</module>
     </modules>
 
     <properties>

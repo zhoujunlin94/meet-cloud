@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: provider-demo01
+  profiles:
+    active: dev
+
+server:
+  port: 18080

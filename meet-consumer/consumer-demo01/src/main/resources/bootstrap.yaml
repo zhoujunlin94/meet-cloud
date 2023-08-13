@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: consumer-demo01
+  profiles:
+    active: dev
+
+# 加密算法  建议存到nacos中
+jasypt:
+  encryptor:
+    # 加密算法
+    algorithm: PBEWITHMD5ANDDES
+    password: 123456

@@ -27,9 +27,9 @@ spring:
 #            - Path=/oschina
 #          filters:
 #            - StripPrefix=1
-#        - id: ReactiveCompositeDiscoveryClient_consumer-biz
-#          uri: lb://consumer-biz
+#        - id: ReactiveCompositeDiscoveryClient_consumer-demo01
+#          uri: lb://consumer-demo01
 #          predicates:
-#            - Path=/consumer-biz/**
+#            - Path=/consumer-demo01/**
 #          filters:
 #            - StripPrefix=1

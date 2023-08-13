@@ -18,10 +18,9 @@
     </modules>
 
     <name>${project.artifactId}</name>
-    <description>meet with springcloud</description>
+    <description>meet with spring-cloud</description>
 
     <properties>
-        <meet.version>1.0-SNAPSHOT</meet.version>
         <!-- Maven 相关 -->
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -39,25 +38,35 @@
             <dependency>
                 <groupId>com.you.meet.cloud</groupId>
                 <artifactId>meet-dependencies</artifactId>
-                <version>${meet.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2251328-release-gRPLpp/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2251328-snapshot-UHwYed/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <pluginManagement>
             <plugins>
                 <!-- maven-surefire-plugin 插件，用于运行单元测试。 -->
-                <!-- 注意，需要使用 3.0.X+，因为要支持 Junit 5 版本 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                 </plugin>
+
                 <!-- maven-compiler-plugin 插件，解决 Lombok + MapStruct 组合 -->
-                <!-- https://stackoverflow.com/questions/33483697/re-run-spring-boot-configuration-annotation-processor-to-update-generated-metada -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -76,6 +85,87 @@
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+
+                <!-- 生成sources源码包的插件 -->
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <additionalOptions>
+                            <additionalOption>-Xdoclint:none</additionalOption>
+                        </additionalOptions>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- 统一版本号管理 -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>1.2.7</version>
+                    <configuration>
+                        <updatePomFile>true</updatePomFile>
+                        <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>flatten</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>flatten</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>flatten.clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

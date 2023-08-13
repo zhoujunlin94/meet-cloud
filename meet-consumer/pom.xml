@@ -16,8 +16,7 @@
     </description>
 
     <modules>
-        <module>consumer-api</module>
-        <module>consumer-biz</module>
+        <module>consumer-demo01</module>
     </modules>
 
     <properties>

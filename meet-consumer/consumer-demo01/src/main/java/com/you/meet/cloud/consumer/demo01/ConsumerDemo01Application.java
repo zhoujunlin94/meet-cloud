@@ -11,10 +11,10 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 @EnableDiscoveryClient
 @EnableBinding(MySink.class)
 @EnableFeignClients
-public class ConsumerBizApplication {
+public class ConsumerDemo01Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerBizApplication.class, args);
+        SpringApplication.run(ConsumerDemo01Application.class, args);
     }
 
 }

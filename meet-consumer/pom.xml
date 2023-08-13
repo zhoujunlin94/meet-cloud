@@ -8,7 +8,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <version>${project.version}</version>
+    <version>${project.parent.version}</version>
 
     <artifactId>meet-consumer</artifactId>
     <description>

@@ -3,7 +3,7 @@ package com.you.meet.cloud.consumer.demo01.controller;
 import cn.hutool.core.collection.CollUtil;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.demo01.feign.client.ProviderBizClient;
+import com.you.meet.cloud.consumer.demo01.feign.client.ProviderDemo01Client;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ import java.util.Objects;
 @RequestMapping("/test")
 public class TestController {
     @Resource
-    private ProviderBizClient providerClient;
+    private ProviderDemo01Client providerClient;
     @Resource
     private DiscoveryClient discoveryClient;
     @Resource

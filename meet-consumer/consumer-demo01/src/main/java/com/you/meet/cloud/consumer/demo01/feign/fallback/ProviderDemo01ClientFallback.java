@@ -1,19 +1,19 @@
 package com.you.meet.cloud.consumer.demo01.feign.fallback;
 
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.demo01.feign.client.ProviderBizClient;
+import com.you.meet.cloud.consumer.demo01.feign.client.ProviderDemo01Client;
 
 /**
  * @author zhoujunlin
  * @date 2023年02月25日 12:41
  * @desc
  */
-public class ProviderBizClientFallback implements ProviderBizClient {
+public class ProviderDemo01ClientFallback implements ProviderDemo01Client {
 
     private Throwable throwable;
     private JSONResponse fallbackResp;
 
-    public ProviderBizClientFallback(Throwable throwable) {
+    public ProviderDemo01ClientFallback(Throwable throwable) {
         this.throwable = throwable;
         this.fallbackResp = JSONResponse.fail("fallback:" + throwable.getClass().getSimpleName());
     }

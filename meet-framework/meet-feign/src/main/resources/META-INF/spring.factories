@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.you.meet.cloud.feign.FeignAutoConfiguration

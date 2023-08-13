@@ -21,6 +21,10 @@
             <groupId>com.you.meet.cloud</groupId>
             <artifactId>meet-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.you.meet.cloud</groupId>
+            <artifactId>meet-feign</artifactId>
+        </dependency>
 
         <!-- 引入 Spring Cloud Alibaba Nacos Discovery 相关依赖，将 Nacos 作为注册中心，并实现对其的自动配置 -->
         <dependency>
@@ -32,12 +36,6 @@
                     <artifactId>ribbon</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!-- 引入 Spring Cloud OpenFeign 相关依赖，使用 OpenFeign 提供声明式调用，并实现对其的自动配置 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <!-- 引入 Spring Cloud Alibaba Sentinel 相关依赖，使用 Sentinel 提供服务保障，并实现对其的自动配置 -->

@@ -4,6 +4,7 @@ import com.you.meet.cloud.web.interceptor.HttpBaseInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
@@ -20,38 +21,24 @@ public class WebMVCConfiguration implements WebMvcConfigurer {
     @Resource
     private HttpBaseInterceptor httpBaseInterceptor;
     @Resource
-    private HttpMessageConverter fastJsonHttpMessageConverter;
+    private HttpMessageConverter<Object> fastJsonHttpMessageConverter;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(httpBaseInterceptor)
-                .excludePathPatterns("/favicon.ico", "/swagger-resources/**",
-                        "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+                .excludePathPatterns("/favicon.ico", "/assets/**/*")
+                .excludePathPatterns("/swagger-resources", "/v2/api-docs", "/doc.html")
+                .excludePathPatterns("/**/*.js");
     }
 
-
-    /**
-     * 解决swagger被拦截的问题
-     *
-     * @param registry
-     */
-    /*@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
-
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(0, fastJsonHttpMessageConverter);
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/swagger-ui.html");
-    }*/
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        //converters.add(0, new MappingJackson2HttpMessageConverter());
-        converters.add(0, fastJsonHttpMessageConverter);
+        registry.addViewController("/").setViewName("redirect:/doc.html");
     }
 
 }

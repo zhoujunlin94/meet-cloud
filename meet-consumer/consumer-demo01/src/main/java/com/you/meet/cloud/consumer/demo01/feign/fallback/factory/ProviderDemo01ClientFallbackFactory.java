@@ -1,6 +1,6 @@
 package com.you.meet.cloud.consumer.demo01.feign.fallback.factory;
 
-import com.you.meet.cloud.consumer.demo01.feign.fallback.ProviderBizClientFallback;
+import com.you.meet.cloud.consumer.demo01.feign.fallback.ProviderDemo01ClientFallback;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
  * @desc
  */
 @Component
-public class ProviderBizClientFallbackFactory implements FallbackFactory<ProviderBizClientFallback> {
+public class ProviderDemo01ClientFallbackFactory implements FallbackFactory<ProviderDemo01ClientFallback> {
 
     @Override
-    public ProviderBizClientFallback create(Throwable cause) {
+    public ProviderDemo01ClientFallback create(Throwable cause) {
         // 开启 Sentinel 对 Feign 的支持，默认为 false 关闭。
-        return new ProviderBizClientFallback(cause);
+        return new ProviderDemo01ClientFallback(cause);
     }
 
 }

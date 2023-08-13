@@ -97,9 +97,9 @@
                 <version>${meet.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.you.meet.nice</groupId>
+                <groupId>com.you.meet.cloud</groupId>
                 <artifactId>meet-feign</artifactId>
-                <version>${meet.version}</version>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
 
             <!-- 统一依赖管理 -->

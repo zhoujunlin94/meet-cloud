@@ -1,10 +1,12 @@
 package com.you.meet.cloud.consumer.biz;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -14,8 +16,10 @@ import javax.annotation.Resource;
  * @date 2023年03月07日 15:24
  * @desc
  */
-@SpringBootTest
+@Slf4j
 @RunWith(SpringRunner.class)
+@ActiveProfiles(profiles = "dev")
+@SpringBootTest(classes = ConsumerDemo01ApplicationTests.class)
 public class JasyptTest {
     @Resource
     private StringEncryptor stringEncryptor;

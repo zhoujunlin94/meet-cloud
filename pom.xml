@@ -22,6 +22,7 @@
 
     <properties>
         <!-- Maven 相关 -->
+        <meet.version>1.0-SNAPSHOT</meet.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -38,7 +39,7 @@
             <dependency>
                 <groupId>com.you.meet.cloud</groupId>
                 <artifactId>meet-dependencies</artifactId>
-                <version>${project.version}</version>
+                <version>${meet.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 @Slf4j
 @RestControllerAdvice(
-        basePackages = {"com.you.meet.nice"}
+        basePackages = {"com.you.meet.cloud"}
 )
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 

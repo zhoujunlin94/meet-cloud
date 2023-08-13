@@ -1,6 +1,6 @@
-package com.you.meet.cloud.consumer.biz;
+package com.you.meet.cloud.consumer.demo01;
 
-import com.you.meet.cloud.consumer.biz.message.MySink;
+import com.you.meet.cloud.consumer.demo01.message.MySink;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

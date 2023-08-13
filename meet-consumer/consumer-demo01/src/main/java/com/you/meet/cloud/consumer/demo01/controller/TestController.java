@@ -1,9 +1,9 @@
-package com.you.meet.cloud.consumer.biz.controller;
+package com.you.meet.cloud.consumer.demo01.controller;
 
 import cn.hutool.core.collection.CollUtil;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.biz.feign.client.ProviderBizClient;
+import com.you.meet.cloud.consumer.demo01.feign.client.ProviderBizClient;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;

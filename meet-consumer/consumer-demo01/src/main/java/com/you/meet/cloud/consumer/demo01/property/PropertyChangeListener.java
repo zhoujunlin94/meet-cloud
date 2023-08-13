@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.property;
+package com.you.meet.cloud.consumer.demo01.property;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.context.environment.EnvironmentChangeEvent;

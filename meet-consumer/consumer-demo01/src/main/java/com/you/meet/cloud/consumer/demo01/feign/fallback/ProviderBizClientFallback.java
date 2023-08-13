@@ -1,7 +1,7 @@
-package com.you.meet.cloud.consumer.biz.feign.fallback;
+package com.you.meet.cloud.consumer.demo01.feign.fallback;
 
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.biz.feign.client.ProviderBizClient;
+import com.you.meet.cloud.consumer.demo01.feign.client.ProviderBizClient;
 
 /**
  * @author zhoujunlin

@@ -1,7 +1,7 @@
-package com.you.meet.cloud.consumer.biz.controller;
+package com.you.meet.cloud.consumer.demo01.controller;
 
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.biz.property.OrderProperty;
+import com.you.meet.cloud.consumer.demo01.property.OrderProperty;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.controller;
+package com.you.meet.cloud.consumer.demo01.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

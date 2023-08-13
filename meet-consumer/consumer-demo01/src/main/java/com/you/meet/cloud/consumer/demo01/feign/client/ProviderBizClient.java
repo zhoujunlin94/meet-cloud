@@ -1,7 +1,7 @@
-package com.you.meet.cloud.consumer.biz.feign.client;
+package com.you.meet.cloud.consumer.demo01.feign.client;
 
 import com.you.meet.cloud.common.pojo.JSONResponse;
-import com.you.meet.cloud.consumer.biz.feign.fallback.factory.ProviderBizClientFallbackFactory;
+import com.you.meet.cloud.consumer.demo01.feign.fallback.factory.ProviderBizClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

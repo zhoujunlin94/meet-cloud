@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.property;
+package com.you.meet.cloud.consumer.demo01.property;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

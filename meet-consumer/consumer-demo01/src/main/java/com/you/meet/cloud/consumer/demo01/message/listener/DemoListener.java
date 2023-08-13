@@ -1,7 +1,7 @@
-package com.you.meet.cloud.consumer.biz.message.listener;
+package com.you.meet.cloud.consumer.demo01.message.listener;
 
-import com.you.meet.cloud.consumer.biz.message.constant.RocketMQConstant;
-import com.you.meet.cloud.consumer.biz.message.entity.Demo01Message;
+import com.you.meet.cloud.consumer.demo01.message.constant.RocketMQConstant;
+import com.you.meet.cloud.consumer.demo01.message.entity.Demo01Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.cloud.stream.annotation.StreamListener;

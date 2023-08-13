@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.property;
+package com.you.meet.cloud.consumer.demo01.property;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;

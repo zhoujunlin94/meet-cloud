@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.config;
+package com.you.meet.cloud.consumer.demo01.config;
 
 import cn.hutool.core.util.StrUtil;
 import com.you.meet.cloud.common.pojo.RequestContext;

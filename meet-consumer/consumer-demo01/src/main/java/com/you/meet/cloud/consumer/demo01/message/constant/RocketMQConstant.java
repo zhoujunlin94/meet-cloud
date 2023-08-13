@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.message.constant;
+package com.you.meet.cloud.consumer.demo01.message.constant;
 
 /**
  * @author zhoujunlin

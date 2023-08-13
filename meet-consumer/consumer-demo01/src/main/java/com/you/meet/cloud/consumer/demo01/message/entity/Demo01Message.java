@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz.message.entity;
+package com.you.meet.cloud.consumer.demo01.message.entity;
 
 import lombok.Data;
 

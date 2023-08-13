@@ -1,6 +1,6 @@
-package com.you.meet.cloud.consumer.biz.feign.fallback.factory;
+package com.you.meet.cloud.consumer.demo01.feign.fallback.factory;
 
-import com.you.meet.cloud.consumer.biz.feign.fallback.ProviderBizClientFallback;
+import com.you.meet.cloud.consumer.demo01.feign.fallback.ProviderBizClientFallback;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 

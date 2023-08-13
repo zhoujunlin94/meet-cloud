@@ -1,6 +1,6 @@
-package com.you.meet.cloud.consumer.biz.message;
+package com.you.meet.cloud.consumer.demo01.message;
 
-import com.you.meet.cloud.consumer.biz.message.constant.RocketMQConstant;
+import com.you.meet.cloud.consumer.demo01.message.constant.RocketMQConstant;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
 

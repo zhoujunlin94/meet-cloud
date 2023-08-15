@@ -15,7 +15,6 @@
         <module>meet-framework</module>
         <module>meet-gateway</module>
         <module>meet-provider</module>
-        <module>meet-test</module>
     </modules>
 
     <description>meet with spring-cloud</description>
@@ -31,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <lombok.version>1.18.24</lombok.version>
-        <spring.boot.version>2.7.8</spring.boot.version>
+        <spring.boot.version>2.6.11</spring.boot.version>
     </properties>
 
     <dependencyManagement>

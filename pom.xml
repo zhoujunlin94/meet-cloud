@@ -18,7 +18,6 @@
         <module>meet-test</module>
     </modules>
 
-    <name>${project.artifactId}</name>
     <description>meet with spring-cloud</description>
 
     <properties>

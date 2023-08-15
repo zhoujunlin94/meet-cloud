@@ -12,12 +12,12 @@
     <artifactId>meet-common</artifactId>
     <packaging>jar</packaging>
 
-    <name>${project.artifactId}</name>
     <description>定义基础的pojo类,工具,常量,枚举</description>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <dependencies>

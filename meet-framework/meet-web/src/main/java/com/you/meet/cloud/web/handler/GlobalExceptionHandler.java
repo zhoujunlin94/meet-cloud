@@ -1,13 +1,13 @@
 package com.you.meet.cloud.web.handler;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.you.meet.cloud.common.exception.CommonErrorCode;
 import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public JSONResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         Iterator<ObjectError> errorIterator = e.getBindingResult().getAllErrors().iterator();
-        JSONResponse jsonResponse = JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).data(e.getMessage()).build();
+        JSONResponse jsonResponse = JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).msg(e.getMessage()).build();
         if (errorIterator.hasNext()) {
             ObjectError error = errorIterator.next();
             jsonResponse.setMsg(error.getDefaultMessage());
@@ -43,7 +43,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public JSONResponse handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
-        return JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).data(e.getMessage()).build();
+        return JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).msg(e.getMessage()).build();
+    }
+
+    @ExceptionHandler({HttpMessageNotReadableException.class})
+    public JSONResponse handle(HttpMessageNotReadableException e) {
+        return JSONResponse.builder().code(CommonErrorCode.P_BAD_PARAMETER.getCode()).msg(e.getMessage()).build();
     }
 
     @ExceptionHandler({MeetException.class})
@@ -56,17 +61,9 @@ public class GlobalExceptionHandler {
         log.error("未知异常:", e);
         if (e instanceof UndeclaredThrowableException) {
             Throwable undeclaredThrowable = ((UndeclaredThrowableException) e).getUndeclaredThrowable();
-            if (undeclaredThrowable instanceof BlockException) {
-                return handleBlockException((BlockException) undeclaredThrowable);
-            }
             // todo 后续有一些可预期的异常可以instanceof判断生成相应响应
         }
         return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("接口异常，请联系管理员！").build();
-    }
-
-    @ExceptionHandler(value = BlockException.class)
-    public JSONResponse handleBlockException(BlockException blockException) {
-        return JSONResponse.builder().code(CommonErrorCode.S_SYSTEM_BUSY.getCode()).msg("请求被拦截,拦截类型为 " + blockException.getClass().getSimpleName()).build();
     }
 
 

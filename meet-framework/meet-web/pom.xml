@@ -51,11 +51,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 
 </project>

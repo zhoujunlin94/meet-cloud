@@ -16,6 +16,7 @@
 
     <modules>
         <module>consumer-demo01</module>
+        <module>consumer-8080</module>
     </modules>
 
     <properties>

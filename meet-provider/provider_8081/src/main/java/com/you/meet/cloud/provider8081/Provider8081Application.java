@@ -1,4 +1,4 @@
-package com.you.meet.cloud;
+package com.you.meet.cloud.provider8081;
 
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.SpringApplication;

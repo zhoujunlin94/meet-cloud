@@ -1,4 +1,4 @@
-package com.you.meet.cloud.config;
+package com.you.meet.cloud.provider8081.config;
 
 import com.you.meet.cloud.web.interceptor.HttpBaseInterceptor;
 import org.springframework.context.annotation.Configuration;

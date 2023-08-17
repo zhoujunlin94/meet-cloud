@@ -1,4 +1,4 @@
-package com.you.meet.cloud.config;
+package com.you.meet.cloud.provider8081.config;
 
 import com.you.meet.cloud.tk_mybatis.config.AbstractMybatisConfig;
 import com.you.meet.cloud.tk_mybatis.interceptor.SQLCostInterceptor;
@@ -22,7 +22,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @date 2023/03/27
  **/
 @Configuration
-@MapperScan(basePackages = "com.you.meet.cloud.repository.db.test.mapper", annotationClass = Mapper.class,
+@MapperScan(basePackages = "com.you.meet.cloud.provider8081.repository.db.test.mapper", annotationClass = Mapper.class,
         sqlSessionFactoryRef = "testSqlSessionFactory")
 @ConditionalOnClass({SqlSessionFactory.class, SqlSessionFactoryBean.class})
 public class TestMybatisConfig extends AbstractMybatisConfig {
@@ -33,7 +33,7 @@ public class TestMybatisConfig extends AbstractMybatisConfig {
     public static final String TRANSACTION_MANAGER = "testTransactionManager";
 
     private static final String MAPPER_LOCATION = "classpath:mybatis/test/*Mapper.xml";
-    private static final String TYPE_ALIASES_PACKAGE = "com.you.meet.cloud.repository.db.test.model";
+    private static final String TYPE_ALIASES_PACKAGE = "com.you.meet.cloud.provider8081.repository.db.test.model";
 
     @Override
     @Bean(DATA_SOURCE_PROPERTIES)

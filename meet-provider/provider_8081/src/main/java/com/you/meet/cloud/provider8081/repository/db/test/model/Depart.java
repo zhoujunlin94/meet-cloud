@@ -1,4 +1,4 @@
-package com.you.meet.cloud.repository.db.test.model;
+package com.you.meet.cloud.provider8081.repository.db.test.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,7 @@
-package com.you.meet.cloud.repository.db.test.handler;
+package com.you.meet.cloud.provider8081.repository.db.test.handler;
 
-import com.you.meet.cloud.repository.db.test.mapper.DepartMapper;
-import com.you.meet.cloud.repository.db.test.model.Depart;
+import com.you.meet.cloud.provider8081.repository.db.test.mapper.DepartMapper;
+import com.you.meet.cloud.provider8081.repository.db.test.model.Depart;
 import com.you.meet.cloud.tk_mybatis.handler.TKHandler;
 import org.springframework.stereotype.Repository;
 

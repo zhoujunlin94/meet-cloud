@@ -1,7 +1,7 @@
-package com.you.meet.cloud.controller;
+package com.you.meet.cloud.provider8081.controller;
 
-import com.you.meet.cloud.repository.db.test.handler.DepartHandler;
-import com.you.meet.cloud.repository.db.test.model.Depart;
+import com.you.meet.cloud.provider8081.repository.db.test.handler.DepartHandler;
+import com.you.meet.cloud.provider8081.repository.db.test.model.Depart;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

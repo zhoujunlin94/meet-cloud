@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.you.meet.cloud.repository.db.test.mapper.DepartMapper">
+  <resultMap id="BaseResultMap" type="com.you.meet.cloud.repository.db.test.model.Depart">
+    <!--@mbg.generated generated on Thu Aug 17 22:15:33 CST 2023.-->
+    <!--@Table depart-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Aug 17 22:15:33 CST 2023.-->
+    id, `name`
+  </sql>
+</mapper>

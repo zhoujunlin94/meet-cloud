@@ -1,0 +1,6 @@
+POST http://localhost:8081/depart/save
+Content-Type: application/json
+
+{
+  "name": "测试部门"
+}

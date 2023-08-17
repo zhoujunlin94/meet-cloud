@@ -19,6 +19,7 @@
         <module>meet-common</module>
         <module>meet-web</module>
         <module>meet-feign</module>
+        <module>meet-tk_mybatis</module>
     </modules>
 
 </project>

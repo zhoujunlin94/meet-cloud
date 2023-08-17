@@ -101,6 +101,11 @@
                 <artifactId>meet-feign</artifactId>
                 <version>${meet.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.you.meet.cloud</groupId>
+                <artifactId>meet-tk_mybatis</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
 
             <!-- 统一依赖管理 -->
             <dependency>

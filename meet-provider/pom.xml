@@ -18,7 +18,7 @@
     </description>
 
     <modules>
-        <module>provider-demo01</module>
+        <module>provider</module>
         <module>provider_8081</module>
     </modules>
 

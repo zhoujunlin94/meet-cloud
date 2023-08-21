@@ -39,6 +39,15 @@ spring:
         # 数据隔离  命名空间-group-微服务
         namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
         group: MEET-GROUP
+        #  true临时实例 默认值     false永久实例
+        #临时实例：默认情况。服务实例仅会注册在 Nacos 内存，不会持久化到 Nacos 磁盘。其健康检测机制为 Client 模式，
+        #即Client主动向 Server 上报其健康状态。默认心跳间隔为5 秒。在 15 秒内 Server 未收到 Client 心跳，则会将其标记为“不健康”状态；
+        #在30秒内若收到了 Client 心跳，则重新恢复“健康”状态，否则该实例将从 Server 端内存清除。
+
+        #        持久实例：服务实例不仅会注册到 Nacos 内存，同时也会被持久化到 Nacos 磁盘。其健康检测机制为 Server 模式，
+        #        即 Server 会主动去检测 Client 的健康状态，默认每 20 秒检测一次。
+        #       健康检测失败后服务实例会被标记为“不健康”状态，但不会被清除，因为其是持久化在磁盘的。
+        ephemeral: true
 
 logging:
   level:

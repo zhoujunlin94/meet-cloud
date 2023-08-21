@@ -22,3 +22,9 @@ GET http://localhost:8080/depart/get/1
 
 ###
 GET http://localhost:8080/depart/list
+
+###
+GET http://localhost:8080/depart/discovery
+
+###
+GET http://localhost:8080/depart/instances

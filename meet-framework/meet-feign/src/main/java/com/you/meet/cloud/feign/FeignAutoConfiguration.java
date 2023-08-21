@@ -2,6 +2,7 @@ package com.you.meet.cloud.feign;
 
 import com.you.meet.cloud.common.util.RequestIdUtil;
 import feign.RequestInterceptor;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 public class FeignAutoConfiguration {
 
     @Bean
+    @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }

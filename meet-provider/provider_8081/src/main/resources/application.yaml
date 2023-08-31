@@ -1,55 +1,18 @@
-server:
-  port: 8081
-
 spring:
-  datasource:
-    test:
-      url: jdbc:mysql://124.221.56.164:3306/test?useSSL=false&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useUnicode=true&autoReconnect=true&failOverReadOnly=false&useAffectedRows=true
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      username: root
-      password: root
-      # 指定为HikariDataSource
-      type: com.zaxxer.hikari.HikariDataSource
-      hikari:
-        pool-name: HikariCP-provider_8081
-        #最小空闲连接数
-        minimum-idle: 5
-        # 空闲连接存活最大时间，默认10分钟
-        idle-timeout: 240000
-        # 连接池最大连接数，默认是10
-        maximum-pool-size: 10
-        # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
-        auto-commit: true
-        # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认30分钟
-        max-lifetime: 300000
-        # 数据库连接超时时间,默认30秒
-        connection-timeout: 10000
-        # 连接测试query
-        connection-test-query: SELECT 1
   application:
-    # 微服务命名不能有下划线！！！  否则restTemplate调用识别不到
     name: provider-depart
+  profiles:
+    active: dev
   cloud:
     nacos:
-      discovery:
-        # 集群逗号分隔
+      config:
         server-addr: 124.221.56.164:8848
         username: nacos
         password: meet_nacos
-        # 数据隔离  命名空间-group-微服务
         namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
         group: MEET-GROUP
-        #  true临时实例 默认值     false永久实例
-        #临时实例：默认情况。服务实例仅会注册在 Nacos 内存，不会持久化到 Nacos 磁盘。其健康检测机制为 Client 模式，
-        #即Client主动向 Server 上报其健康状态。默认心跳间隔为5 秒。在 15 秒内 Server 未收到 Client 心跳，则会将其标记为“不健康”状态；
-        #在30秒内若收到了 Client 心跳，则重新恢复“健康”状态，否则该实例将从 Server 端内存清除。
-
-        #        持久实例：服务实例不仅会注册到 Nacos 内存，同时也会被持久化到 Nacos 磁盘。其健康检测机制为 Server 模式，
-        #        即 Server 会主动去检测 Client 的健康状态，默认每 20 秒检测一次。
-        #       健康检测失败后服务实例会被标记为“不健康”状态，但不会被清除，因为其是持久化在磁盘的。
-        ephemeral: true
-
-logging:
-  level:
-    com.you.meet.nice.*: debug
-  config: classpath:logback.xml
+        file-extension: yaml
+  config:
+    # nacos dataId名字provider-depart-dev.yaml
+    import:
+      - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

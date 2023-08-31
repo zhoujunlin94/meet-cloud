@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/depart/get/1
+GET http://localhost:8080/depart/get/100
 
 ###
 GET http://localhost:8080/depart/list

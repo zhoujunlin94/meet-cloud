@@ -1,7 +1,6 @@
 package com.you.meet.cloud.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
-import com.you.meet.cloud.common.exception.MeetException;
 import com.you.meet.cloud.common.pojo.JSONResponse;
 import lombok.Data;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

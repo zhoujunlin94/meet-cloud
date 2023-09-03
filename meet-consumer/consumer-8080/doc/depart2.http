@@ -1,0 +1,24 @@
+POST http://localhost:8380/depart2/save
+Content-Type: application/json
+
+{
+  "name": "运维部门"
+}
+
+###
+DELETE http://localhost:8380/depart2/del/2
+
+###
+PUT http://localhost:8380/depart2/update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "研发部门"
+}
+
+###
+GET http://localhost:8380/depart2/get/100
+
+###
+GET http://localhost:8380/depart2/list

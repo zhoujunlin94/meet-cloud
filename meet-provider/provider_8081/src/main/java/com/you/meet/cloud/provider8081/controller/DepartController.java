@@ -52,7 +52,7 @@ public class DepartController {
     }
 
     @GetMapping("/get/{id}")
-    public Depart getHandle(@PathVariable("id") int id) {
+    public Depart get(@PathVariable("id") int id) {
         Depart depart = departHandler.selectByPrimaryKey(id);
         if (Objects.isNull(depart)) {
             depart = Depart.builder().id(-1).name(departName).build();

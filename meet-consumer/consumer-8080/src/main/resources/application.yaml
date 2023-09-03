@@ -16,3 +16,22 @@ spring:
     # nacos dataId名字consumer-depart-dev.yaml
     import:
       - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+feign:
+  httpclient:
+    enabled: true
+  client:
+    config:
+      # 全局配置
+      default:
+        connect-timeout: 3000
+        read-timeout: 60000
+      # 局部配置
+      provider-depart:
+        connect-timeout: 30000
+        read-timeout: 60000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true

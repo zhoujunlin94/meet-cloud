@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: baidu_route
+          uri: https://www.baidu.com
+          # 断言  满足此断言 才跳转uri
+          predicates:
+            - Path=/**

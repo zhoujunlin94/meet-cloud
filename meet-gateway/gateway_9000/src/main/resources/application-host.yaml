@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: host_route
+          uri: https://www.baidu.com
+          predicates:
+            - Host=a.com

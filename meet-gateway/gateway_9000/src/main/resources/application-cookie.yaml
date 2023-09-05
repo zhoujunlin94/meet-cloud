@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: cookie_route
+          uri: https://www.baidu.com
+          predicates:
+            - Cookie=city,beijing

@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: https://www.baidu.com
+          predicates:
+            #            - After=2023-09-05T23:00+08:00[Asia/Shanghai]
+            #            - Before=2023-09-30T23:00+08:00[Asia/Shanghai]
+            - Between=2023-09-05T20:00+08:00[Asia/Shanghai],2023-09-30T23:00+08:00[Asia/Shanghai]

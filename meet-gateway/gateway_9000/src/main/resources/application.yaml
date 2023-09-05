@@ -1,0 +1,14 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    com.you.meet.cloud.*: debug
+  config: classpath:logback.xml
+
+
+spring:
+  application:
+    name: gateway_9000
+  profiles:
+    active: host

@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: header_route
+          uri: https://www.baidu.com
+          predicates:
+            # 请求头中包含全数字的 X-Request-Id参数
+            - Header=X-Request-Id, \d+

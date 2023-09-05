@@ -1,0 +1,7 @@
+### cookie路由断言
+GET http://localhost:9000
+Cookie: city=beijing
+
+### header路由断言
+GET http://localhost:9000
+X-Request-Id: 2023090511111

@@ -81,10 +81,42 @@ public class GatewayConfig {
     public RouteLocator pathRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
                 .route("provider_route", predicate ->
-                        predicate.path("/provider/**")
-                                .uri("https://www.jd.com"))
+                        predicate.path("/depart/**")
+                                .uri("http://localhost:8991"))
                 .route("consumer_route", predicate ->
-                        predicate.path("/consumer/**")
+                        predicate.path("/depart2/**")
+                                .uri("http://localhost:8990"))
+                .build();
+    }
+
+    @Bean
+    public RouteLocator queryRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("query_route", predicate ->
+                        predicate.query("color", "gr.+")
+                                .and()
+                                .query("size")
+                                .uri("https://www.jd.com"))
+                .build();
+    }
+
+    @Bean
+    public RouteLocator remoteAddrRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("remoteAddr_route", predicate ->
+                        predicate.remoteAddr("192.168.1.1/24")
+                                .uri("https://www.jd.com"))
+                .build();
+    }
+
+    @Bean
+    public RouteLocator weightAddrRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("taobao_route", predicate ->
+                        predicate.weight("shop", 8)
+                                .uri("https://www.taobao.com"))
+                .route("jd_route", predicate ->
+                        predicate.weight("shop", 2)
                                 .uri("https://www.jd.com"))
                 .build();
     }

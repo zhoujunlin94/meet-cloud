@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: query_route
+          uri: https://www.baidu.com
+          predicates:
+            # 请求参数中必须包含color和size参数,且color参数值必须以gr开头
+            - Query=color, gr.+
+            - Query=size

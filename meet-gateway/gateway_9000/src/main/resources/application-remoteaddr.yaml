@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: remoteaddr_route
+          uri: https://www.baidu.com
+          predicates:
+            # 客户端ip（代理服务器）在192.168.1网段的可以访问   http://192.168.1.10:9000/
+            - RemoteAddr=192.168.1.1/24

@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # shop组按照8：2的比例随机访问
+        - id: taobao_route
+          uri: https://www.taobao.com
+          predicates:
+            - Weight=shop, 8
+
+        - id: jd_route
+          uri: https://www.jd.com
+          predicates:
+            - Weight=shop, 2

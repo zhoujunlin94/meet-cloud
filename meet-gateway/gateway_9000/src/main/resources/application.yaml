@@ -11,4 +11,4 @@ spring:
   application:
     name: gateway_9000
   profiles:
-    active: forwardedremoteaddr
+    active: query

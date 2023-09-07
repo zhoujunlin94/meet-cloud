@@ -63,7 +63,7 @@ public class GatewayConfig {
     public RouteLocator hostRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
                 .route("host_route", predicate ->
-                        predicate.host("a.com")
+                        predicate.host("a.com:9000")
                                 .uri("https://www.jd.com"))
                 .build();
     }

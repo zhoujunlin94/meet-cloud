@@ -5,4 +5,4 @@ spring:
         - id: host_route
           uri: https://www.baidu.com
           predicates:
-            - Host=a.com
+            - Host=a.com:9000, b.com:9000

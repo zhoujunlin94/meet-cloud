@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: forwardedremoteaddr_route
+          uri: https://www.baidu.com
+          predicates:
+            # 客户端ip（真实ip）在192.168.1网段或者ip为192.168.10.10的可以访问  即请求头里X-Forwarded-For参数的值
+            - XForwardedRemoteAddr=192.168.1.1/24,192.168.10.10

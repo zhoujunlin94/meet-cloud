@@ -121,4 +121,13 @@ public class GatewayConfig {
                 .build();
     }
 
+    @Bean
+    public RouteLocator forwardedRemoteAddrRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("forwardRemoteAddr_route", predicate ->
+                        predicate.xForwardedRemoteAddr("192.168.1.1/24", "192.168.10.10")
+                                .uri("https://www.jd.com"))
+                .build();
+    }
+
 }

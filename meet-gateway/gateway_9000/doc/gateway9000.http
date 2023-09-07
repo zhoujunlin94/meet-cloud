@@ -14,3 +14,7 @@ POST http://localhost:9000
 
 ###
 PUT http://localhost:9000
+
+###
+GET http://localhost:9000
+X-Forwarded-For: 192.168.10.10

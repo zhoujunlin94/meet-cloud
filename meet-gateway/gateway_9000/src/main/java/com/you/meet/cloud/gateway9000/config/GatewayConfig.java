@@ -68,5 +68,25 @@ public class GatewayConfig {
                 .build();
     }
 
+    @Bean
+    public RouteLocator methodRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("method_route", predicate ->
+                        predicate.method("GET", "POST")
+                                .uri("https://www.jd.com"))
+                .build();
+    }
+
+    @Bean
+    public RouteLocator pathRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        return routeLocatorBuilder.routes()
+                .route("provider_route", predicate ->
+                        predicate.path("/provider/**")
+                                .uri("https://www.jd.com"))
+                .route("consumer_route", predicate ->
+                        predicate.path("/consumer/**")
+                                .uri("https://www.jd.com"))
+                .build();
+    }
 
 }

@@ -5,3 +5,12 @@ Cookie: city=beijing
 ### header路由断言
 GET http://localhost:9000
 X-Request-Id: 2023090511111
+
+###
+GET http://localhost:9000
+
+###
+POST http://localhost:9000
+
+###
+PUT http://localhost:9000

@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: provider_route
+          uri: http://localhost:8991
+          predicates:
+            - Path=/depart/**
+
+        - id: consumer_route
+          uri: http://localhost:8990
+          predicates:
+            - Path=/depart2/**

@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: filterstripprefix_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/a/b/info/**
+          filters:
+            # 将/a/b/info/**去除两个路径  即变为/info/**
+            - StripPrefix=2

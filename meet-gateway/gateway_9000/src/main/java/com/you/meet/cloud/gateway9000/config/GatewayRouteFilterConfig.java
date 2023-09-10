@@ -63,5 +63,35 @@ public class GatewayRouteFilterConfig {
                 ).build();
     }
 
+    @Bean
+    public RouteLocator prefixPathFilter(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("prefixPath", ps ->
+                        ps.path("/headers")
+                                .filters(fs -> fs.prefixPath("/info"))
+                                .uri("http://localhost:8980")
+                ).build();
+    }
+
+    @Bean
+    public RouteLocator stripPrefixFilter(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("prefixPath", ps ->
+                        ps.path("/a/b/info/**")
+                                .filters(fs -> fs.stripPrefix(2))
+                                .uri("http://localhost:8980")
+                ).build();
+    }
+
+    @Bean
+    public RouteLocator rewritePathFilter(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("rewritePath", ps ->
+                        ps.path("/a/b/**")
+                                .filters(fs -> fs.rewritePath("/a/b", "/info"))
+                                .uri("http://localhost:8980")
+                ).build();
+    }
+
 
 }

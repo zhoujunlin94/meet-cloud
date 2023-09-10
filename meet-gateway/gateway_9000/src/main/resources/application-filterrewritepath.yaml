@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: filterrewritepath_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/a/b/**
+          filters:
+            # 将/a/b路径改为 /info
+            #            - RewritePath=/a/b, /info
+            # 支持正则匹配
+            - RewritePath=/a/b/?(?<segment>.*), /info/$\{segment}

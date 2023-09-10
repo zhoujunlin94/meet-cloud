@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: filterprefixpath_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/headers
+          filters:
+            # 为 /headers 路径添加 /info前缀
+            - PrefixPath=/info

@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Bean;
 /**
  * @author zhoujunlin
  * @date 2023年09月10日 21:28
- * @desc
+ * @desc 对于相同 filter 工厂，在不同位置设置了不同的值，则优先级为
+ * 1. 局部 filter 的优先级高于默认 filter 的
+ * 2. API 式的 filter 优先级高于配置式 filter 的  这点与路由断言工厂恰恰相反
  */
 /*@Configuration*/
 public class GatewayRouteFilterConfig {

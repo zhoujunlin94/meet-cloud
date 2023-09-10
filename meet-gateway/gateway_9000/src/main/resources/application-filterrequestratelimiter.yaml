@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: filterrequestratelimiter_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/info/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                # spel表达式指定KeyResolver
+                key-resolver: "#{@hostNameKeyResolver}"
+                # redis令牌桶  每秒生成令牌个数  令牌不够时响应429错误码
+                redis-rate-limiter.replenishRate: 1
+                # 崩溃不够时  每秒令牌生成个数
+                redis-rate-limiter.burstCapacity: 2
+                # 每次请求使用token数
+                redis-rate-limiter.requestedTokens: 1
+  redis:
+    host: 124.221.56.164
+    port: 16379
+    password: root

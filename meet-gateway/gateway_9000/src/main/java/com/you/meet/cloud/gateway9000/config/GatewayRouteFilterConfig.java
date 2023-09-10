@@ -36,5 +36,32 @@ public class GatewayRouteFilterConfig {
                 ).build();
     }
 
+    @Bean
+    public RouteLocator addResponseHeaderFilter(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("addResponseHeader", ps ->
+                        ps.path("/**")
+                                .filters(fs ->
+                                        fs.addResponseHeader("color", "blue")
+                                                .addResponseHeader("color", "red")
+                                                .addResponseHeader("username", "tom")
+                                ).uri("http://localhost:8980")
+                ).build();
+    }
+
+    @Bean
+    public RouteLocator circuitBreakerFilter(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("addResponseHeader", ps ->
+                        ps.path("/info/**")
+                                .filters(fs ->
+                                        fs.circuitBreaker(config -> {
+                                            config.setName("myCircuitBreaker");
+                                            config.setFallbackUri("forward:/fb");
+                                        })
+                                ).uri("http://localhost:8980")
+                ).build();
+    }
+
 
 }

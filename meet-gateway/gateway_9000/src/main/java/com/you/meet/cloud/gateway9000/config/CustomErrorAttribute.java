@@ -2,7 +2,6 @@ package com.you.meet.cloud.gateway9000.config;
 
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 
 import java.util.HashMap;
@@ -13,7 +12,7 @@ import java.util.Map;
  * @date 2023年09月07日 22:57
  * @desc
  */
-@Component
+/*@Component*/
 public class CustomErrorAttribute extends DefaultErrorAttributes {
 
     @Override

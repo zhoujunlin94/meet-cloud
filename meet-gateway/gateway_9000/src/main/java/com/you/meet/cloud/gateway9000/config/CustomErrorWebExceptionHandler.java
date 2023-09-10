@@ -9,7 +9,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerCodecConfigurer;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -26,7 +25,7 @@ import java.util.Map;
  * @desc
  */
 @Order(-1)
-@Component
+/*@Component*/
 public class CustomErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
     public CustomErrorWebExceptionHandler(ErrorAttributes errorAttributes,

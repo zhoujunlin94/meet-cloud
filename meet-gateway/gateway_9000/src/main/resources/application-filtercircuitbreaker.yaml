@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: circuitbreaker_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/info/**
+          filters:
+            # 降级策略   和全局异常处理器不能同时存在
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: forward:/fb

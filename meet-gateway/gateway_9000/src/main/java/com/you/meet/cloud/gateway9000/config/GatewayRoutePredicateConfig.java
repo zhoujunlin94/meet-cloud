@@ -14,7 +14,7 @@ import java.time.ZonedDateTime;
  * @desc 编程式网关   配置式网关与编程式网关在不冲突的情况下是【或】的关系  在冲突的情况下配置式网关优先级高于编程式网关
  */
 /*@Configuration*/
-public class GatewayConfig {
+public class GatewayRoutePredicateConfig {
 
     @Bean
     public RouteLocator baseRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {

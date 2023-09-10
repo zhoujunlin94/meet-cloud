@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestparam_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/**
+          filters:
+            - AddRequestParameter=color, blue
+            - AddRequestParameter=color, red
+            - AddRequestParameter=size, 123

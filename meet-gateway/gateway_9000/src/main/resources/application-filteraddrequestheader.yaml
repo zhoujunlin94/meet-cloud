@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestheader_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/**
+          filters:
+            - AddRequestHeader=X-Request-Color, blue
+            - AddRequestHeader=X-Request-Color, red
+            - AddRequestHeader=city, shanghai

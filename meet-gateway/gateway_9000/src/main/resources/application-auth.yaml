@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth_route
+          uri: https://www.baidu.com
+          predicates:
+            - Auth=lisi, 123456

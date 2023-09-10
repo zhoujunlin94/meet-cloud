@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: token_route
+          uri: https://www.baidu.com
+          predicates:
+            - Token=123456

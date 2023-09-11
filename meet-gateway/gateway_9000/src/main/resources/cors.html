@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cors</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function accessDepart() {
+            // 当前页面路径 http://localhost:63342/meet_cloud/gateway_9000/cors.html?_ijt=ee41sm4serpm49r5d5l769ql38&_ij_reload=RELOAD_ON_SAVE
+            // 因此存在跨域
+            $.get("http://localhost:9000/provider/depart/get/3?token=xxxx", function (data) {
+                alert(data.data.name)
+            });
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="访问depart" onclick="accessDepart()"/>
+</body>
+</html>

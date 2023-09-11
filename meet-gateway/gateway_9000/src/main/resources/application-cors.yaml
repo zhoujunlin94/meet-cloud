@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      #  全局解决跨域问题   局部解决见CorsConfig自定义配置
+      #      globalcors:
+      #        cors-configurations:
+      #          '[/**]':
+      #            allowedOrigins: "*"
+      #            allowedMethods:
+      #              - GET
+      #              - POST
+      routes:
+        - id: cors_route
+          uri: http://localhost:8983
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1

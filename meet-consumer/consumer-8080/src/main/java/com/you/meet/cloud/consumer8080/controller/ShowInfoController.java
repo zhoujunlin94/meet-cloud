@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhoujunlin
@@ -19,6 +20,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/info")
 public class ShowInfoController {
+
+    @GetMapping("/time")
+    public String time() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
+        return "到达目标服务器时间" + System.currentTimeMillis();
+    }
 
 
     @GetMapping("/param")

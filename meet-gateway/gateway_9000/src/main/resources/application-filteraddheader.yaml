@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addheader_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/**
+          filters:
+            - AddHeader=new-color, blue

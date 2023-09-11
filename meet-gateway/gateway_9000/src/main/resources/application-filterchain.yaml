@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addheader_route
+          uri: http://localhost:8980
+          predicates:
+            - Path=/**
+          filters:
+            - One=onefilter, 111
+            - Two=twofilter, 222
+            - Three=threefilter, 333

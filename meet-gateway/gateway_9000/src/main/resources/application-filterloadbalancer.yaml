@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gateway9000
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.56.164:8848
+        username: nacos
+        password: meet_nacos
+        namespace: 4ad4c584-3999-4cae-9adc-bfaca2a00f0a
+        group: MEET-GROUP
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      #  找不到指定服务时(本地注册表仍有缓存) 使状态码50X变为404
+      loadbalancer:
+        use404: true
+      routes:
+        - id: consumer_route
+          uri: lb://consumer-depart
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - StripPrefix=1

@@ -1,5 +1,6 @@
 package com.you.meet.cloud.consumer8080.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,14 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/info")
 public class ShowInfoController {
+
+    @Value("${server.port}")
+    private String serverPort;
+
+    @GetMapping("/serverPort")
+    public String serverPort() {
+        return serverPort;
+    }
 
     @GetMapping("/time")
     public String time() throws InterruptedException {

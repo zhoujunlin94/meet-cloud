@@ -1,17 +1,10 @@
 package com.you.meet.cloud.consumer8080.controller;
 
-import com.you.meet.cloud.common.pojo.JSONResponse;
 import com.you.meet.cloud.consumer8080.dto.DepartDTO;
+import com.you.meet.nice.common.pojo.JsonResponse;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -39,9 +32,9 @@ public class DepartController {
     private static final String SERVICE_PROVIDER = "http://provider-depart/depart";
 
     @PostMapping("/save")
-    public JSONResponse save(@RequestBody DepartDTO depart) {
+    public JsonResponse save(@RequestBody DepartDTO depart) {
         String url = SERVICE_PROVIDER + "/save";
-        return restTemplate.postForObject(url, depart, JSONResponse.class);
+        return restTemplate.postForObject(url, depart, JsonResponse.class);
     }
 
     @DeleteMapping("/del/{id}")
@@ -56,15 +49,15 @@ public class DepartController {
     }
 
     @GetMapping("/get/{id}")
-    public JSONResponse get(@PathVariable("id") int id) {
+    public JsonResponse get(@PathVariable("id") int id) {
         String url = SERVICE_PROVIDER + "/get/" + id;
-        return restTemplate.getForObject(url, JSONResponse.class);
+        return restTemplate.getForObject(url, JsonResponse.class);
     }
 
     @GetMapping("/list")
-    public JSONResponse list() {
+    public JsonResponse list() {
         String url = SERVICE_PROVIDER + "/list";
-        return restTemplate.getForObject(url, JSONResponse.class);
+        return restTemplate.getForObject(url, JsonResponse.class);
     }
 
 

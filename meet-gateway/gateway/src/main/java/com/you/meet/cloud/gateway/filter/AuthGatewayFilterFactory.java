@@ -1,7 +1,7 @@
 package com.you.meet.cloud.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
-import com.you.meet.cloud.common.pojo.JSONResponse;
+import com.you.meet.nice.common.pojo.JsonResponse;
 import lombok.Data;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -62,7 +62,7 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
                     // 响应 401 状态码
                     response.setStatusCode(HttpStatus.UNAUTHORIZED);
                     // 响应提示
-                    DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(JSONResponse.fail("认证不通过").toString().getBytes());
+                    DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(JsonResponse.fail("认证不通过").toString().getBytes());
                     return response.writeWith(Flux.just(buffer));
                 }
 

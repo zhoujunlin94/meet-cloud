@@ -1,6 +1,6 @@
-package com.you.meet.cloud.provider.config;
+package com.you.meet.cloud.consumer.config;
 
-import com.you.meet.cloud.web.interceptor.HttpBaseInterceptor;
+import com.you.meet.nice.web.interceptor.HttpBaseInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,7 +16,7 @@ import java.util.List;
  * @desc
  */
 @Configuration
-public class WebMVCConfiguration implements WebMvcConfigurer {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Resource
     private HttpBaseInterceptor httpBaseInterceptor;
@@ -26,8 +26,7 @@ public class WebMVCConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(httpBaseInterceptor)
-                .excludePathPatterns("/favicon.ico", "/assets/**/*")
-                .excludePathPatterns("/swagger-resources", "/v2/api-docs", "/doc.html")
+                .excludePathPatterns("/favicon.ico", "/assets/**/*", "/swagger-resources", "/v2/api-docs", "/doc.html")
                 .excludePathPatterns("/**/*.js");
     }
 

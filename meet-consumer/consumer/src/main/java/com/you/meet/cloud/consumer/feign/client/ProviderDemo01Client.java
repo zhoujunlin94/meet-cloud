@@ -1,7 +1,7 @@
 package com.you.meet.cloud.consumer.feign.client;
 
-import com.you.meet.cloud.common.pojo.JSONResponse;
 import com.you.meet.cloud.consumer.feign.fallback.factory.ProviderDemo01ClientFallbackFactory;
+import com.you.meet.nice.common.pojo.JsonResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface ProviderDemo01Client {
 
     @GetMapping("/test/echo/{msg}")
-    JSONResponse echo(@PathVariable("msg") String msg);
+    JsonResponse echo(@PathVariable("msg") String msg);
 
     @GetMapping("/test/test")
-    JSONResponse test();
+    JsonResponse test();
 
 
     @GetMapping("/test/echo")

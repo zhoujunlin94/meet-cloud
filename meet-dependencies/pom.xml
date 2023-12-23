@@ -26,40 +26,6 @@
 
         <xxl-job.version>2.3.1</xxl-job.version>
 
-        <!-- 工具类相关 -->
-        <jsoup.version>1.15.3</jsoup.version>
-
-        <lombok.version>1.18.24</lombok.version>
-        <slf4j.version>1.7.25</slf4j.version>
-
-        <hutool.version>5.8.11</hutool.version>
-        <poi.version>5.0.0</poi.version>
-        <easyexcel.verion>3.2.0</easyexcel.verion>
-        <velocity.version>2.3</velocity.version>
-
-        <jackson.version>2.10.3</jackson.version>
-        <fastjson.version>1.2.83</fastjson.version>
-        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
-
-        <guava.version>31.1-jre</guava.version>
-        <guice.version>5.1.0</guice.version>
-        <zxing.version>3.3.0</zxing.version>
-
-        <jsch.version>0.1.55</jsch.version>
-        <tika-core.version>2.6.0</tika-core.version>
-        <thumbnailator.version>0.4.11</thumbnailator.version>
-        <ip2region.version>2.6.6</ip2region.version>
-        <pinyin4j.version>2.5.0</pinyin4j.version>
-        <minio.version>8.5.1</minio.version>
-
-        <commons.lang>2.6</commons.lang>
-        <commons-lang3.version>3.8.1</commons-lang3.version>
-        <commons-net.version>3.8.0</commons-net.version>
-        <commons-collections4.version>4.2</commons-collections4.version>
-
-        <okhttp3.version>4.10.0</okhttp3.version>
-        <openfeign.version>11.0</openfeign.version>
-
         <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
         <security-jwt-version>1.1.1.RELEASE</security-jwt-version>
         <jjwt-version>0.9.0</jjwt-version>
@@ -69,12 +35,6 @@
         <netty-socketio.client.version>1.0.0</netty-socketio.client.version>
 
         <elasticsearch.version>6.8.0</elasticsearch.version>
-        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
-        <mybatis.version>2.2.2</mybatis.version>
-        <mybatis.ehcache.version>1.1.0</mybatis.ehcache.version>
-        <tk.mybatis.version>2.0.0</tk.mybatis.version>
-        <pagehelper.version>5.1.11</pagehelper.version>
-        <redisson.version>3.18.0</redisson.version>
 
         <rocketmq.version>2.1.1</rocketmq.version>
 
@@ -87,22 +47,27 @@
         <dependencies>
             <!-- 自定义组件 -->
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
+                <groupId>com.you.meet.nice</groupId>
                 <artifactId>meet-common</artifactId>
                 <version>${meet.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
+                <groupId>com.you.meet.nice</groupId>
                 <artifactId>meet-web</artifactId>
                 <version>${meet.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
+                <groupId>com.you.meet.nice</groupId>
+                <artifactId>meet-redis</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.you.meet.nice</groupId>
                 <artifactId>meet-feign</artifactId>
                 <version>${meet.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
+                <groupId>com.you.meet.nice</groupId>
                 <artifactId>meet-tk_mybatis</artifactId>
                 <version>${meet.version}</version>
             </dependency>
@@ -134,162 +99,6 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jsoup</groupId>
-                <artifactId>jsoup</artifactId>
-                <version>${jsoup.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>${poi.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>easyexcel</artifactId>
-                <version>${easyexcel.verion}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId>
-                <version>${transmittable-thread-local.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.inject</groupId>
-                <artifactId>guice</artifactId>
-                <version>${guice.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>core</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>javase</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <!-- 解决 sftp 连接 -->
-            <dependency>
-                <groupId>com.jcraft</groupId>
-                <artifactId>jsch</artifactId>
-                <version>${jsch.version}</version>
-            </dependency>
-            <!-- 文件类型的识别 -->
-            <dependency>
-                <groupId>org.apache.tika</groupId>
-                <artifactId>tika-core</artifactId>
-                <version>${tika-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.coobird</groupId>
-                <artifactId>thumbnailator</artifactId>
-                <version>${thumbnailator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.lionsoul</groupId>
-                <artifactId>ip2region</artifactId>
-                <version>${ip2region.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.belerweb</groupId>
-                <artifactId>pinyin4j</artifactId>
-                <version>${pinyin4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>${minio.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons.lang}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-            <!-- 解决 ftp 连接 -->
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId>
-                <version>${commons-net.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>${commons-collections4.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${openfeign.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-gson</artifactId>
-                <version>${openfeign.version}</version>
             </dependency>
 
             <dependency>
@@ -331,12 +140,6 @@
                 <version>${netty-socketio.client.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-boot-starter</artifactId>
-                <version>${redisson.version}</version>
-            </dependency>
-
             <!-- Java Low Level REST Client -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
@@ -348,32 +151,6 @@
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elasticsearch.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.caches</groupId>
-                <artifactId>mybatis-ehcache</artifactId>
-                <version>${mybatis.ehcache.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper-spring-boot-starter</artifactId>
-                <version>${tk.mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${pagehelper.version}</version>
             </dependency>
 
             <dependency>

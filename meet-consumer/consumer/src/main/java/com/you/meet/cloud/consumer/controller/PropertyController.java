@@ -1,6 +1,5 @@
 package com.you.meet.cloud.consumer.controller;
 
-import com.you.meet.cloud.common.pojo.JSONResponse;
 import com.you.meet.cloud.consumer.property.OrderProperty;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,16 +34,16 @@ public class PropertyController {
      * 测试 @Value 注解的属性
      */
     @GetMapping("/test02")
-    public JSONResponse test02() {
+    public Map<String, Object> test02() {
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("payTimeoutSeconds", payTimeoutSeconds);
         resultMap.put("createFrequencySeconds", createFrequencySeconds);
-        return JSONResponse.ok(resultMap);
+        return resultMap;
     }
 
     @GetMapping("/test1")
-    public JSONResponse test1() {
-        return JSONResponse.ok(orderProperty);
+    public OrderProperty test1() {
+        return orderProperty;
     }
 
 }

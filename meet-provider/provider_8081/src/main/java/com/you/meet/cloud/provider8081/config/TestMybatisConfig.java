@@ -1,7 +1,6 @@
 package com.you.meet.cloud.provider8081.config;
 
-import com.you.meet.cloud.tk_mybatis.config.AbstractMybatisConfig;
-import com.you.meet.cloud.tk_mybatis.interceptor.SQLCostInterceptor;
+import com.you.meet.nice.tk_mybatis.config.AbstractMybatisConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,58 +21,57 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @date 2023/03/27
  **/
 @Configuration
-@MapperScan(basePackages = "com.you.meet.cloud.provider8081.repository.db.test.mapper", annotationClass = Mapper.class,
-        sqlSessionFactoryRef = "testSqlSessionFactory")
+@MapperScan(basePackages = TestMybatisConfig.MAPPER_PACKAGE, annotationClass = Mapper.class,
+        sqlSessionFactoryRef = TestMybatisConfig.SQL_SESSION_FACTORY)
 @ConditionalOnClass({SqlSessionFactory.class, SqlSessionFactoryBean.class})
 public class TestMybatisConfig extends AbstractMybatisConfig {
 
-    public static final String DATA_SOURCE_PROPERTIES = "testDataSourceProperties";
-    public static final String DATA_SOURCE = "testDataSource";
+    public static final String MAPPER_PACKAGE = "com.you.meet.cloud.provider8081.repository.db.test.mapper";
     public static final String SQL_SESSION_FACTORY = "testSqlSessionFactory";
-    public static final String TRANSACTION_MANAGER = "testTransactionManager";
 
-    private static final String MAPPER_LOCATION = "classpath:mybatis/test/*Mapper.xml";
+    private static final String DATA_SOURCE_PROPERTIES_BEAN = "testDataSourceProperties";
+    private static final String DATA_SOURCE_PROPERTIES_PREFIX = "spring.datasource.test";
+    private static final String DATA_SOURCE_BEAN = "testDataSource";
+    private static final String DATA_SOURCE_HIKARI_PREFIX = "spring.datasource.test.hikari";
+    private static final String TRANSACTION_MANAGER = "testTransactionManager";
+
+    private static final String MAPPER_XML_LOCATION = "classpath*:mybatis/test/*Mapper.xml";
     private static final String TYPE_ALIASES_PACKAGE = "com.you.meet.cloud.provider8081.repository.db.test.model";
 
     @Override
-    @Bean(DATA_SOURCE_PROPERTIES)
-    @ConfigurationProperties("spring.datasource.test")
+    @Bean(DATA_SOURCE_PROPERTIES_BEAN)
+    @ConfigurationProperties(DATA_SOURCE_PROPERTIES_PREFIX)
     protected DataSourceProperties dataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Override
-    @Bean(DATA_SOURCE)
-    @ConfigurationProperties(prefix = "spring.datasource.test.hikari")
-    public HikariDataSource dataSource(@Autowired @Qualifier(DATA_SOURCE_PROPERTIES) DataSourceProperties dataSourceProperties) {
+    @Bean(DATA_SOURCE_BEAN)
+    @ConfigurationProperties(prefix = DATA_SOURCE_HIKARI_PREFIX)
+    public HikariDataSource dataSource(@Autowired @Qualifier(DATA_SOURCE_PROPERTIES_BEAN) DataSourceProperties dataSourceProperties) {
         return dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
 
     @Override
     @Bean(SQL_SESSION_FACTORY)
-    public SqlSessionFactory sqlSessionFactory(@Autowired @Qualifier(DATA_SOURCE) HikariDataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Autowired @Qualifier(DATA_SOURCE_BEAN) HikariDataSource dataSource) throws Exception {
         return buildSqlSessionFactory(dataSource);
     }
 
     @Override
     @Bean(TRANSACTION_MANAGER)
-    public PlatformTransactionManager platformTransactionManager(@Autowired @Qualifier(DATA_SOURCE) HikariDataSource dataSource) {
+    public PlatformTransactionManager platformTransactionManager(@Autowired @Qualifier(DATA_SOURCE_BEAN) HikariDataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Override
     public String getMapperLocation() {
-        return MAPPER_LOCATION;
+        return MAPPER_XML_LOCATION;
     }
 
     @Override
     public String getTypeAliasesPackage() {
         return TYPE_ALIASES_PACKAGE;
-    }
-
-    @Override
-    protected SQLCostInterceptor sqlCostInterceptor() {
-        return null;
     }
 
 }

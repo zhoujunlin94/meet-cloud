@@ -18,11 +18,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
+            <groupId>com.you.meet.nice</groupId>
             <artifactId>meet-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
+            <groupId>com.you.meet.nice</groupId>
             <artifactId>meet-feign</artifactId>
         </dependency>
 

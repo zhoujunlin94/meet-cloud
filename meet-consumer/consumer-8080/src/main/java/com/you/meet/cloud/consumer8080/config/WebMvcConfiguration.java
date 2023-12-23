@@ -1,6 +1,6 @@
 package com.you.meet.cloud.consumer8080.config;
 
-import com.you.meet.cloud.web.interceptor.HttpBaseInterceptor;
+import com.you.meet.nice.web.interceptor.HttpBaseInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,7 +16,7 @@ import java.util.List;
  * @desc
  */
 @Configuration
-public class WebMVCConfiguration implements WebMvcConfigurer {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Resource
     private HttpBaseInterceptor httpBaseInterceptor;

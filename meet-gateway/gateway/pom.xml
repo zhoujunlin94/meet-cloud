@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.you.meet.cloud</groupId>
+            <groupId>com.you.meet.nice</groupId>
             <artifactId>meet-common</artifactId>
         </dependency>
 

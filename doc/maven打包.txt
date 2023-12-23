@@ -1,7 +1,0 @@
-父模块pom上传
-mvn deploy -N
-
-子模块jar上传
-mvn clean install -pl <moduleName> org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests
-
-mvn clean install -pl meet-common org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -DskipTests

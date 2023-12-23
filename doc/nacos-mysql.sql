@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+CREATE DATABASE IF NOT EXISTS `nacos_config` CHARACTER SET 'utf8mb4';
+USE `nacos_config`;
 
 /******************************************/
 /*   数据库全名 = nacos_config   */

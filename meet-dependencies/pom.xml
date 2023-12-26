@@ -24,23 +24,10 @@
         <spring.cloud.version>2021.0.4</spring.cloud.version>
         <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
 
-        <xxl-job.version>2.3.1</xxl-job.version>
-
-        <security-oauth2-version>2.2.1.RELEASE</security-oauth2-version>
-        <security-jwt-version>1.1.1.RELEASE</security-jwt-version>
-        <jjwt-version>0.9.0</jjwt-version>
-
-        <netty-all.version>4.1.86.Final</netty-all.version>
-        <netty-socketio.version>1.7.17</netty-socketio.version>
-        <netty-socketio.client.version>1.0.0</netty-socketio.client.version>
-
-        <elasticsearch.version>6.8.0</elasticsearch.version>
-
         <rocketmq.version>2.1.1</rocketmq.version>
 
         <jasypt.version>3.0.2</jasypt.version>
 
-        <sa-token.version>1.35.0.RC</sa-token.version>
     </properties>
 
     <dependencyManagement>
@@ -96,64 +83,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job-core</artifactId>
-                <version>${xxl-job.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.security.oauth</groupId>
-                <artifactId>spring-security-oauth2</artifactId>
-                <version>${security-oauth2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security.oauth.boot</groupId>
-                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-                <version>${security-oauth2-version}</version>
-            </dependency>
-            <!-- jwt依赖 -->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-jwt</artifactId>
-                <version>${security-jwt-version}</version>
-            </dependency>
-            <!-- jwt依赖 -->
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
-                <version>${jjwt-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty-all.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.corundumstudio.socketio</groupId>
-                <artifactId>netty-socketio</artifactId>
-                <version>${netty-socketio.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.socket</groupId>
-                <artifactId>socket.io-client</artifactId>
-                <version>${netty-socketio.client.version}</version>
-            </dependency>
-
-            <!-- Java Low Level REST Client -->
-            <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>elasticsearch-rest-client</artifactId>
-                <version>${elasticsearch.version}</version>
-            </dependency>
-            <!-- Java High Level REST Client -->
-            <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>elasticsearch-rest-high-level-client</artifactId>
-                <version>${elasticsearch.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq.version}</version>
@@ -164,13 +93,6 @@
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-spring-boot-starter</artifactId>
-                <version>${sa-token.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 

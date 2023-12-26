@@ -1,0 +1,28 @@
+# nacos配置中心使用方法：https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        group: DEFAULT_GROUP
+        #        ${spring.application.name}-${profile}.${file-extension}  A
+        file-extension: yaml
+        refresh-enabled: true
+        username: nacos
+        password: nacos
+  config:
+    import:
+      - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#        namespace:
+
+#        共享配置 B
+#        shared-configs:
+#          - group: DEFAULT_GROUP
+#            data-id: common.yaml
+#            refresh: true
+#        扩展配置  C
+#        extension-configs:
+#          - group: DEFAULT_GROUP
+#            data-id: common.yaml
+#            refresh: true
+# 优先级  A > C > B

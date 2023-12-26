@@ -1,3 +1,0 @@
-1. sentinel客户端api
-http://127.0.0.1:8719/api
-

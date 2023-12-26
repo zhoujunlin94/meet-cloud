@@ -1,4 +1,4 @@
-package com.you.meet.cloud.provider8081.config;
+package com.you.meet.cloud.consumer.nacos.config.config;
 
 import com.you.meet.nice.web.interceptor.HttpBaseInterceptor;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
 package com.you.meet.cloud.provider.nacos.discovery.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
@@ -15,8 +15,11 @@ import java.util.Map;
  * @desc
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/provider")
 public class ProviderController {
+
+    private final NacosDiscoveryProperties nacosDiscoveryProperties;
 
     @GetMapping("/headers")
     public Map<String, String> getHeader(HttpServletRequest request) {
@@ -35,6 +38,35 @@ public class ProviderController {
         }
 
         return ret;
+    }
+
+    @GetMapping("/sleep")
+    public String sleep() {
+        try {
+            Thread.sleep(1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "ok";
+    }
+
+    @GetMapping("/echo/{string}")
+    public String echo(@PathVariable String string) {
+        return "hello Nacos Discovery " + string;
+    }
+
+    @GetMapping("/divide")
+    public String divide(@RequestParam Integer a, @RequestParam Integer b) {
+        if (b == 0) {
+            return String.valueOf(0);
+        } else {
+            return String.valueOf(a / b);
+        }
+    }
+
+    @GetMapping("/nacosDiscoveryProperties")
+    public NacosDiscoveryProperties nacosDiscoveryProperties() {
+        return nacosDiscoveryProperties;
     }
 
 }

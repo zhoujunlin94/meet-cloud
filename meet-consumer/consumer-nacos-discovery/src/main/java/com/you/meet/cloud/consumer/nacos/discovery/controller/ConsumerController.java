@@ -25,6 +25,7 @@ import java.util.Map;
 @RequestMapping("/consumer")
 public class ConsumerController {
 
+
     private final LoadBalancerClient loadBalancerClient;
     private final RestTemplate restTemplate;
     private final DiscoveryClient discoveryClient;

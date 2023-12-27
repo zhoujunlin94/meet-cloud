@@ -1,0 +1,8 @@
+#
+GET http://127.0.0.1:9090/actuator
+
+###
+GET http://127.0.0.1:9090/actuator/nacosdiscovery
+
+###
+GET http://127.0.0.1:9090/provider/headers

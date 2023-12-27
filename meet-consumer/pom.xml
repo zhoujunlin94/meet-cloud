@@ -18,6 +18,7 @@
         <module>consumer</module>
         <module>consumer-8080</module>
         <module>consumer-nacos-config</module>
+        <module>consumer-nacos-discovery</module>
     </modules>
 
     <properties>

@@ -1,5 +1,6 @@
 package com.you.meet.cloud.consumer.biz;
 
+import com.you.meet.cloud.consumer.ConsumerApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
 @Slf4j
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "dev")
-@SpringBootTest(classes = ConsumerDemo01ApplicationTests.class)
+@SpringBootTest(classes = ConsumerApplication.class)
 public class JasyptTest {
     @Resource
     private StringEncryptor stringEncryptor;

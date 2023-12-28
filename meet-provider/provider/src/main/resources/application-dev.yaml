@@ -27,53 +27,6 @@ spring:
             data-id: ${spring.application.name}-flow-rule # Nacos 配置集编号
             data-type: json # 数据格式
             rule-type: FLOW # 规则类型
-    # Spring Cloud Stream 配置项，对应 BindingServiceProperties 类
-    stream:
-      # Binding 配置项，对应 BindingProperties 是个Map
-      bindings:
-        demo01-output:
-          # 目的地。这里使用 RocketMQ Topic
-          destination: DEMO-TOPIC-01
-          # 内容格式。这里使用 JSON
-          content-type: application/json
-        demo03-output:
-          destination: DEMO-TOPIC-03
-          content-type: application/json
-          producer:
-            # 分区 key 表达式。该表达式基于 Spring EL，从消息中获得分区 key。
-            partition-key-expression: payload['id']
-        demo04-output:
-          destination: DEMO-TOPIC-04
-          content-type: application/json
-      # Spring Cloud Stream RocketMQ 配置项
-      rocketmq:
-        # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
-        binder:
-          # RocketMQ Namesrv 地址
-          name-server: 192.168.56.10:9876;192.168.56.10:9877
-        # RocketMQ 自定义 Binding 配置项，对应 RocketMQBindingProperties Map
-        bindings:
-          demo01-output:
-            # RocketMQ Producer 配置项，对应 RocketMQProducerProperties 类
-            producer:
-              # 同一类 Producer 的集合，这类 Producer 发送同一类消息且发送逻辑一致。如果发送的是事务消息且原始生产者在发送之后崩溃，则 Broker 服务器会联系同一生产者组的其他生产者实例以提交或回溯消费。
-              group: demo01-provider-group-DEMO-TOPIC-01
-              # 消息发送方式
-              send-type: Sync
-          demo03-output:
-            producer:
-              group: demo03-provider-group-DEMO-TOPIC-03
-              # 消息发送方式
-              send-type: Sync
-          demo04-output:
-            producer:
-              group: demo04-provider-group-DEMO-TOPIC-04
-              # 消息发送方式
-              send-type: Sync
-              # 消息发送方式  事务消息
-              producer-type: Trans
-              transaction-listener: transactionListenerImpl
-
 
 
 

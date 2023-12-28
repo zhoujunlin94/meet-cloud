@@ -1,4 +1,4 @@
-package com.you.meet.cloud.consumer.biz;
+package com.you.meet.cloud.provider;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "dev")
-@SpringBootTest(classes = ConsumerDemo01ApplicationTests.class)
-class ConsumerDemo01ApplicationTests {
+@SpringBootTest(classes = ProviderApplication.class)
+class ProviderApplicationTests {
 
     @Test
     void contextLoads() {

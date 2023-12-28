@@ -18,7 +18,6 @@
         <module>consumer</module>
         <module>consumer-nacos-config</module>
         <module>consumer-nacos-discovery</module>
-        <module>consumer-stream-rocketmq</module>
     </modules>
 
     <properties>

@@ -21,6 +21,7 @@
         <module>provider</module>
         <module>provider-nacos-discovery</module>
         <module>provider-rocketmq</module>
+        <module>provider-kafka</module>
     </modules>
 
     <properties>

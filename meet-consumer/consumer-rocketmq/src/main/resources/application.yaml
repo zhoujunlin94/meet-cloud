@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: consumer-rocketmq
+
+server:
+  port: 9293

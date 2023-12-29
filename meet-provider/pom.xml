@@ -20,6 +20,7 @@
     <modules>
         <module>provider</module>
         <module>provider-nacos-discovery</module>
+        <module>provider-rocketmq</module>
     </modules>
 
     <properties>

@@ -1,0 +1,16 @@
+# rocketmq配置项  对应RocketMQProperties
+rocketmq:
+  # rocketmq namesrv
+  name-server: 127.0.0.1:19876
+  # 消费者配置项
+  consumer:
+    # 配置某个消费分组 是否监听指定topic  结构为 Map<消费者分组, <Topic, Boolean>> 。默认情况下，不配置表示监听。
+    listeners:
+      test-consumer-group:
+        # 关闭 test-consumer-group 对 topic1 的监听消费
+        topic1: false
+
+
+
+
+

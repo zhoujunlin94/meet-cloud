@@ -1,0 +1,35 @@
+### 同步发送
+GET http://localhost:9192/msg/syncSend
+
+### 异步发送
+GET http://localhost:9192/msg/asyncSend
+
+### OneWay发送消息  只发送请求不等待应答。
+GET http://localhost:9192/msg/onewaySend
+
+### 批量发送
+GET http://localhost:9192/msg/sendBatch
+
+### 同步发送延迟消息
+GET http://localhost:9192/msg/syncSendDelay?delayLevel=3
+
+### 异步发送延迟消息
+GET http://localhost:9192/msg/asyncSendDelay?delayLevel=3
+
+### 消息重试
+GET http://localhost:9192/msg/syncSendWithRetry
+
+### 广播消息
+GET http://localhost:9192/msg/syncSendWithBroadcast
+
+### 同步发送顺序消息
+GET http://localhost:9192/msg/syncSendOrderly
+
+### 异步发送顺序消息
+GET http://localhost:9192/msg/asyncSendOrderly
+
+### OneWay发送消息  只发送请求不等待应答。
+GET http://localhost:9192/msg/sendOneWayOrderly
+
+### 事务消息
+GET http://localhost:9192/msg/sendMessageInTransaction

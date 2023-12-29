@@ -3,12 +3,14 @@ package com.you.meet.cloud.provider.rocketmq.controller;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import com.you.meet.cloud.provider.rocketmq.dto.BaseMessageDTO;
+import com.you.meet.nice.common.util.RequestIdUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.TransactionSendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.slf4j.MDC;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,17 +53,20 @@ public class SendMsgController {
 
     @GetMapping("/asyncSend")
     public void asyncSend() {
+        String requestId = MDC.get(RequestIdUtil.REQUEST_ID);
         BaseMessageDTO message = new BaseMessageDTO();
         message.setBizId(IdUtil.fastSimpleUUID());
         // 异步发送消息
         rocketMQTemplate.asyncSend(TOPIC_DEMO01, message, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
+                MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                 log.info("[asyncSend][发送编号:{} 发送成功,结果为:{}]", message.getBizId(), sendResult);
             }
 
             @Override
             public void onException(Throwable throwable) {
+                MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                 log.info("[asyncSend][发送编号:{} 发送成功,发送异常]", message.getBizId(), throwable);
             }
         });
@@ -103,6 +108,7 @@ public class SendMsgController {
 
     @GetMapping("/asyncSendDelay")
     public void asyncSendDelay(@RequestParam int delayLevel) {
+        String requestId = MDC.get(RequestIdUtil.REQUEST_ID);
         BaseMessageDTO messageDTO = new BaseMessageDTO();
         messageDTO.setBizId(IdUtil.fastSimpleUUID());
         Message<BaseMessageDTO> message = MessageBuilder.withPayload(messageDTO).build();
@@ -110,11 +116,13 @@ public class SendMsgController {
         rocketMQTemplate.asyncSend(TOPIC_DEMO03, message, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
+                MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                 log.info("[asyncSendDelay][发送编号:{} 发送成功,结果为:{}]", messageDTO.getBizId(), sendResult);
             }
 
             @Override
             public void onException(Throwable throwable) {
+                MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                 log.info("[asyncSendDelay][发送编号:{} 发送成功,发送异常]", messageDTO.getBizId(), throwable);
             }
         }, 30 * 1000, delayLevel);
@@ -148,6 +156,7 @@ public class SendMsgController {
 
     @GetMapping("/asyncSendOrderly")
     public void asyncSendOrderly() {
+        String requestId = MDC.get(RequestIdUtil.REQUEST_ID);
         for (int i = 0; i < 10; i++) {
             BaseMessageDTO messageDTO = new BaseMessageDTO();
             messageDTO.setBizId(IdUtil.fastSimpleUUID() + "_" + i);
@@ -156,11 +165,13 @@ public class SendMsgController {
 
                 @Override
                 public void onSuccess(SendResult result) {
+                    MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                     log.info("[asyncSendOrderly][发送编号：[{}] 发送成功，结果为：[{}]]", messageDTO.getBizId(), result);
                 }
 
                 @Override
                 public void onException(Throwable e) {
+                    MDC.put(RequestIdUtil.REQUEST_ID, requestId);
                     log.info("[asyncSendOrderly][发送编号：[{}] 发送异常]]", messageDTO.getBizId(), e);
                 }
 
@@ -182,11 +193,12 @@ public class SendMsgController {
     public void sendMessageInTransaction() {
         String[] tags = new String[]{"TagA", "TagB", "TagC", "TagD", "TagE"};
         BaseMessageDTO messageDTO = new BaseMessageDTO();
-        messageDTO.setBizId(IdUtil.fastSimpleUUID());
-        Message<BaseMessageDTO> message = MessageBuilder.withPayload(messageDTO).build();
         for (int i = 0; i < 10; i++) {
+            String tag = tags[i % tags.length];
+            messageDTO.setBizId(IdUtil.fastSimpleUUID() + "_" + i + "_" + tag);
+            Message<BaseMessageDTO> message = MessageBuilder.withPayload(messageDTO).build();
             // topic + ":" + tag
-            String destination = StrUtil.join(StrUtil.COLON, TOPIC_DEMO07, tags[i % tags.length]);
+            String destination = StrUtil.join(StrUtil.COLON, TOPIC_DEMO07, tag);
             //第一个destination为消息的目的地  第二个destination为消息携带的业务信息
             TransactionSendResult transactionSendResult = rocketMQTemplate.sendMessageInTransaction(destination, message, destination);
             log.warn("{}:{}事务消息发送结果{}", i, destination, transactionSendResult);

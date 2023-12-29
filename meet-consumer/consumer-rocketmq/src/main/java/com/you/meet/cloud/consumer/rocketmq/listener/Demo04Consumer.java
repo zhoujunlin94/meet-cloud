@@ -23,7 +23,7 @@ public class Demo04Consumer implements RocketMQListener<BaseMessageDTO> {
     public void onMessage(BaseMessageDTO message) {
         log.info("[Demo04Consumer.onMessage][线程编号:{} 消息内容:{}]", Thread.currentThread().getId(), message);
         // <X> 注意，此处抛出一个 RuntimeException 异常，模拟消费失败  消息重新发送
-        throw new RuntimeException("我就是故意抛出一个异常");
+        //throw new RuntimeException("我就是故意抛出一个异常");
     }
 
 }

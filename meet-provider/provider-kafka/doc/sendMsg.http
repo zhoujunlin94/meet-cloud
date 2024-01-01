@@ -1,0 +1,27 @@
+### 同步发送消息
+GET http://127.0.0.1:9191/msg/syncSend
+
+### 异步发送消息
+GET http://127.0.0.1:9191/msg/asyncSend
+
+### 批量发送
+GET http://127.0.0.1:9191/msg/asyncSendBatch
+
+### 消息重试
+GET http://localhost:9191/msg/syncSendAndRetry
+
+### 广播消息
+GET http://localhost:9191/msg/syncSendAndBroadcast
+
+### 无序消息
+GET http://localhost:9191/msg/syncSendNotOrderly
+
+### 有序消息
+GET http://localhost:9191/msg/syncSendOrderly
+
+### 事务消息
+GET http://127.0.0.1:9191/msg/syncSendInTransaction
+
+### 消息ack
+GET http://127.0.0.1:9191/msg/syncSendAndAck
+

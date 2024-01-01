@@ -74,8 +74,8 @@ public class SendMsgController {
     public void asyncSendBatch() throws InterruptedException {
         // todo 需要开启生产者批量发送相关配置
         String requestId = MDC.get(RequestIdUtil.REQUEST_ID);
-        BaseMessageDTO message = new BaseMessageDTO();
         for (int i = 0; i < 3; i++) {
+            BaseMessageDTO message = new BaseMessageDTO();
             message.setBizId(IdUtil.fastSimpleUUID() + "_" + i);
             kafkaTemplate.send(TOPIC_DEMO02, message.toString()).addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
@@ -171,7 +171,7 @@ public class SendMsgController {
 
     @GetMapping("/syncSendAndAck")
     public void syncSendAndAck() throws ExecutionException, InterruptedException {
-        for (int i = 0; i <= 1; i++) {
+        for (int i = 0; i <= 10; i++) {
             BaseMessageDTO messageDTO = new BaseMessageDTO();
             messageDTO.setBizId(String.valueOf(i));
             // 异步发送消息

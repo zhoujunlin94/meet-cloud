@@ -19,6 +19,7 @@
         <module>consumer-nacos-config</module>
         <module>consumer-nacos-discovery</module>
         <module>consumer-rocketmq</module>
+        <module>consumer-kafka</module>
     </modules>
 
     <properties>

@@ -5,10 +5,10 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   application:
-    name: provider-kafka
+    name: consumer-kafka
 
 server:
-  port: 9191
+  port: ${random.int[10000,19999]}
 
 
 # spring-kafka INFO 日志太多了，所以我们限制只打印 ERROR 级别  日志级别OFF>FATAL>ERROR>WARN>INFO>DEBUG>ALL

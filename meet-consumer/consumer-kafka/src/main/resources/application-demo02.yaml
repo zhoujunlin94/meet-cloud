@@ -1,0 +1,23 @@
+spring:
+  # kafka配置项  对应KafkaProperties配置类
+  kafka:
+    # Kafka Broker集群地址
+    bootstrap-servers:
+      - localhost:19092
+    consumer:
+      # 设置消费者分组最初的消费进度为 earliest 。
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # poll 一次拉取的阻塞的最大时长，单位：毫秒。这里指的是阻塞拉取需要满足至少 fetch-min-size 大小的消息
+      fetch-max-wait: 10000
+      # poll 一次消息拉取的最小数据量，单位：字节
+      fetch-min-size: 10
+      #poll 一次消息拉取的最大数量
+      max-poll-records: 100
+    # Kafka Consumer Listener 监听器配置
+    listener:
+      # 监听器类型，默认为 SINGLE ，只监听单条消息。这里我们配置 BATCH ，监听多条消息，批量消费 BATCH 模式：每一次消息被消费完成后，在下次拉取消息之前，自动提交
+      type: BATCH
+      # 消费监听接口监听的主题不存在时，默认会报错。所以通过设置为 false ，解决报错
+      missing-topics-fatal: false

@@ -1,0 +1,24 @@
+spring:
+  # kafka配置项  对应KafkaProperties配置类
+  kafka:
+    # Kafka Broker集群地址
+    bootstrap-servers:
+      - localhost:19092
+    consumer:
+      # 设置消费者分组最初的消费进度为 earliest 。
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 使用 Spring-Kafka 的消费进度的提交机制
+      enable-auto-commit: false
+    # Kafka Consumer Listener 监听器配置
+    listener:
+      # 消费监听接口监听的主题不存在时，默认会报错。所以通过设置为 false ，解决报错
+      missing-topics-fatal: false
+      # RECORD 每条消息被消费完成后，自动提交   BATCH每一次消息被消费完成后，在下次拉取消息之前，自动提交
+      # TIME 达到一定时间间隔后，自动提交。不过要注意，它并不是一到就立马提交，如果此时正在消费某一条消息，需要等这条消息被消费完成，才能提交消费进度。
+      # COUNT 消费成功的消息数到达一定数量后，自动提交。 不过要注意，它并不是一到就立马提交，如果此时正在消费某一条消息，需要等这条消息被消费完成，才能提交消费进度。
+      # COUNT_TIME  TIME 和 COUNT 的结合体，满足任一都会自动提交。
+      # MANUAL 调用时，先标记提交消费进度。等到当前消息被消费完成，然后在提交消费进度。
+      # MANUAL_IMMEDIATE  调用时，立即提交消费进度。
+      ack-mode: MANUAL

@@ -156,7 +156,7 @@ public class SendMsgController {
                 messageDTO.setBizId(IdUtil.fastSimpleUUID());
                 try {
                     SendResult<String, String> sendResult = kafkaOperations.send(TOPIC_DEMO06, messageDTO.toString()).get();
-                    log.info("[doInOperations][发送编号：[{}] 发送结果：[{}]]", messageDTO.getBizId(), sendResult);
+                    log.info("[syncSendInTransaction.doInOperations][发送编号：[{}] 发送结果：[{}]]", messageDTO.getBizId(), sendResult);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

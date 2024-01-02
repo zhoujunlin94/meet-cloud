@@ -7,7 +7,7 @@ GET http://127.0.0.1:9191/msg/asyncSend
 ### 批量发送
 GET http://127.0.0.1:9191/msg/asyncSendBatch
 
-### 消息重试  todo
+### 消息重试
 GET http://localhost:9191/msg/syncSendAndRetry
 
 ### 广播消息

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: demo07
+    active: demo01
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

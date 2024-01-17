@@ -3,7 +3,9 @@ spring:
   kafka:
     # Kafka Broker集群地址
     bootstrap-servers:
-      - localhost:19092
+      - localhost:19192
+      - localhost:19292
+      - localhost:19392
     consumer:
       # 设置消费者分组最初的消费进度为 earliest 。
       auto-offset-reset: latest

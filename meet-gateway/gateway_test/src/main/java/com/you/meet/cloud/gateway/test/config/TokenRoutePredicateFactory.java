@@ -1,4 +1,4 @@
-package com.you.meet.cloud.gateway9000.config;
+package com.you.meet.cloud.gateway.test.config;
 
 import lombok.Data;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;

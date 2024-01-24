@@ -16,7 +16,7 @@
 
     <modules>
         <module>gateway</module>
-        <module>gateway_9000</module>
+        <module>gateway_test</module>
     </modules>
 
     <properties>

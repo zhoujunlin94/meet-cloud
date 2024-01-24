@@ -1,4 +1,4 @@
-package com.you.meet.cloud.gateway9000.config;
+package com.you.meet.cloud.gateway.test.config;
 
 import cn.hutool.core.util.StrUtil;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

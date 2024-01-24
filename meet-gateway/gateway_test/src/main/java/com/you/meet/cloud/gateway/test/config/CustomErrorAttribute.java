@@ -1,4 +1,4 @@
-package com.you.meet.cloud.gateway9000.config;
+package com.you.meet.cloud.gateway.test.config;
 
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;

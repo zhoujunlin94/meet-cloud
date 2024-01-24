@@ -1,4 +1,4 @@
-package com.you.meet.cloud.gateway9000.config;
+package com.you.meet.cloud.gateway.test.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

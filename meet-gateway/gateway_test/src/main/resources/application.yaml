@@ -9,7 +9,7 @@ logging:
 
 spring:
   application:
-    name: gateway9000
+    name: gateway-test
   cloud:
     nacos:
       discovery:

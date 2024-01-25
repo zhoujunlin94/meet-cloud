@@ -28,6 +28,8 @@
 
         <jasypt.version>3.0.2</jasypt.version>
 
+        <knife4j.version>4.3.0</knife4j.version>
+
     </properties>
 
     <dependencyManagement>
@@ -93,6 +95,13 @@
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

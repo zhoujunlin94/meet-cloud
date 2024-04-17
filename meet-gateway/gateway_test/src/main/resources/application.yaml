@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    com.you.meet.cloud.*: debug
+    io.github.zhoujunlin94.*: debug
   config: classpath:logback.xml
 
 

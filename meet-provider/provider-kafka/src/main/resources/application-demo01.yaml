@@ -18,4 +18,4 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
         interceptor:
-          classes: com.you.meet.cloud.provider.kafka.interceptor.RequestIdProducerInterceptor
+          classes: io.github.zhoujunlin94.cloud.provider.kafka.interceptor.RequestIdProducerInterceptor

@@ -4,15 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.you.meet.cloud</groupId>
+    <groupId>io.github.zhoujunlin94</groupId>
     <artifactId>meet-cloud</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>meet-consumer</module>
-        <module>meet-dependencies</module>
-        <module>meet-framework</module>
         <module>meet-gateway</module>
         <module>meet-provider</module>
     </modules>
@@ -30,41 +28,87 @@
 
         <lombok.version>1.18.24</lombok.version>
         <spring.boot.version>2.6.11</spring.boot.version>
-        <meet.version>1.0-SNAPSHOT</meet.version>
+        <spring.cloud.version>2021.0.4</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
+        <rocketmq.version>2.1.1</rocketmq.version>
+        <jasypt.version>3.0.2</jasypt.version>
+        <knife4j.version>4.3.0</knife4j.version>
+
+        <meet.version>1.0.4</meet.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.you.meet.cloud</groupId>
-                <artifactId>meet-dependencies</artifactId>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>meet-common</artifactId>
                 <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>meet-web</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>meet-redis</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>meet-feign</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.zhoujunlin94</groupId>
+                <artifactId>meet-tk_mybatis</artifactId>
+                <version>${meet.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>rdc-releases</id>
-            <url>https://packages.aliyun.com/maven/repository/2251328-release-gRPLpp/</url>
-        </repository>
-        <snapshotRepository>
-            <id>rdc-snapshots</id>
-            <url>https://packages.aliyun.com/maven/repository/2251328-snapshot-UHwYed/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <build>
         <plugins>
-            <!-- maven-surefire-plugin 插件，用于运行单元测试。 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-            </plugin>
-
             <!-- maven-compiler-plugin 插件，解决Lombok -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -121,17 +165,7 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-
-    <!-- 使用 aliyun 的 Maven 源，提升下载速度 -->
-    <repositories>
-        <repository>
-            <id>aliyunmaven</id>
-            <name>aliyun</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-    </repositories>
 
 </project>

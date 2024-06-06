@@ -34,7 +34,7 @@
         <jasypt.version>3.0.2</jasypt.version>
         <knife4j.version>4.3.0</knife4j.version>
 
-        <meet.version>1.0.4</meet.version>
+        <meet.version>1.1.2</meet.version>
     </properties>
 
     <dependencyManagement>

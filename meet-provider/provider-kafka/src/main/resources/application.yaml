@@ -1,9 +1,6 @@
 spring:
   profiles:
     active: demo01
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   application:
     name: provider-kafka
 

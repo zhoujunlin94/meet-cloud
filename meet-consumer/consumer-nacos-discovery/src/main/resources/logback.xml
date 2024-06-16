@@ -8,7 +8,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- 指定配置文件 -->
     <property resource="config.properties"/>
     <!--
-    %X获取MDC中的所有值 %X{requestId}获取MDC中的requestId
+    %X获取MDC中的所有值 %X{X-REQUEST-ID}获取MDC中的requestId
     %d表示日期时间
     %thread表示线程名
     %-5level 日志级别从左显示5个字符宽度
@@ -19,7 +19,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     %n是换行符
     -->
     <property name="LOG_PATTERN"
-              value="%X{requestId} - %d{yyyy-MM-dd HH:mm:ss.SSS} | %thread | %-5level | %logger{80} | %method | %line -> %msg%n"/>
+              value="%X{X-REQUEST-ID} - %d{yyyy-MM-dd HH:mm:ss.SSS} | %thread | %-5level | %logger{80} | %method | %line -> %msg%n"/>
     <!-- 最多保存多少个文件 -->
     <property name="maxHistory" value="7"/>
     <!-- 每个文件大小 -->

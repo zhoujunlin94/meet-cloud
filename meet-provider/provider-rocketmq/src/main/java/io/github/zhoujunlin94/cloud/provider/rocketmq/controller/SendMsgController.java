@@ -41,6 +41,8 @@ public class SendMsgController {
     private static final String TOPIC_DEMO05 = "TOPIC_DEMO05";
     private static final String TOPIC_DEMO06 = "TOPIC_DEMO06";
     private static final String TOPIC_DEMO07 = "TOPIC_DEMO07";
+    private static final String TOPIC_DEMO08 = "TOPIC_DEMO08";
+    private static final String TOPIC_DEMO09 = "TOPIC_DEMO09";
 
     @GetMapping("/syncSend")
     public SendResult syncSend() {
@@ -188,6 +190,35 @@ public class SendMsgController {
             rocketMQTemplate.sendOneWayOrderly(TOPIC_DEMO06, message, "sendOneWayOrderly");
         }
     }
+
+    @GetMapping("/syncSendInTag")
+    public void syncSendInTag() {
+        BaseMessageDTO message = new BaseMessageDTO();
+        message.setBizId(IdUtil.fastSimpleUUID() + "-TAGA");
+        // 要遵循JMS方法规范  所以这里才在一个字段里表达两个含义  TOPIC:TAG
+        rocketMQTemplate.syncSend(TOPIC_DEMO08 + ":TAGA", message);
+        message.setBizId(IdUtil.fastSimpleUUID() + "-TAGB");
+        rocketMQTemplate.syncSend(TOPIC_DEMO08 + ":TAGB", message);
+        message.setBizId(IdUtil.fastSimpleUUID() + "-TAGC");
+        rocketMQTemplate.syncSend(TOPIC_DEMO08 + ":TAGC", message);
+    }
+
+    @GetMapping("/syncSendInSQL")
+    public void syncSendInSQL() {
+        Message<String> message1 = MessageBuilder.withPayload("学生A")
+                .setHeader("age", 18)
+                .setHeader("sex", "man").build();
+        Message<String> message2 = MessageBuilder.withPayload("学生B")
+                .setHeader("age", 20)
+                .setHeader("sex", "women").build();
+        Message<String> message3 = MessageBuilder.withPayload("学生C")
+                .setHeader("age", 30)
+                .setHeader("sex", "unknown").build();
+        rocketMQTemplate.syncSend(TOPIC_DEMO09, message1);
+        rocketMQTemplate.syncSend(TOPIC_DEMO09, message2);
+        rocketMQTemplate.syncSend(TOPIC_DEMO09, message3);
+    }
+
 
     @GetMapping("/sendMessageInTransaction")
     public void sendMessageInTransaction() {

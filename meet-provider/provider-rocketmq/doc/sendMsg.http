@@ -31,5 +31,11 @@ GET http://localhost:9192/msg/asyncSendOrderly
 ### OneWay发送消息  只发送请求不等待应答。
 GET http://localhost:9192/msg/sendOneWayOrderly
 
+### 发送消息  带tag
+GET http://localhost:9192/msg/syncSendInTag
+
+### 发送消息  带header  测试SQL92
+GET http://localhost:9192/msg/syncSendInSQL
+
 ### 事务消息
 GET http://localhost:9192/msg/sendMessageInTransaction

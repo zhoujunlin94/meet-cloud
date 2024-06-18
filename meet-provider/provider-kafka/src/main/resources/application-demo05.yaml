@@ -3,7 +3,9 @@ spring:
   kafka:
     # Kafka Broker集群地址
     bootstrap-servers:
-      - localhost:19092
+      - localhost:19192
+      - localhost:19292
+      - localhost:19392
     # Kafka生产者配置
     producer:
       # 0-不应答。1-leader 应答。all-所有 leader 和 isr 应答。

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: demo01
+    active: demo05
   application:
     name: provider-kafka
 

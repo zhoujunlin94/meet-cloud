@@ -132,7 +132,7 @@ public class SendMsgController {
             message.setBizId(IdUtil.fastSimpleUUID() + "_" + i);
             // 同步发送消息
             // key的序列化方式是String 所以传key的类型也必须是String  相同的key发送到相同的partition
-            kafkaTemplate.send(TOPIC_DEMO05, "syncSendOrderly", message.toString()).get();
+            System.out.println(kafkaTemplate.send(TOPIC_DEMO05, "syncSendOrderly", message.toString()).get());
         }
     }
 

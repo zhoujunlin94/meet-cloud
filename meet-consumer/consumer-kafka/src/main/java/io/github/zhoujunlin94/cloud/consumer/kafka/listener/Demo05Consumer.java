@@ -19,6 +19,14 @@ import org.springframework.stereotype.Component;
  * 这样，因为 @KafkaListener(concurrency=2) 注解，创建 2 个 Kafka Consumer ，就在各自的线程中，拉取各自的 Topic 为 "DEMO_06" 的 Partition 的消息，各自串行消费。从而，实现多线程的并发消费。
  * <p>
  * 有一点要注意，不要配置 concurrency 属性过大，则创建的 Kafka Consumer 分配不到消费 Topic 的 Partition 分区，导致不断的空轮询。
+ * <p>
+ * <p>
+ * <p>
+ * 在理解 Spring-Kafka 提供的并发消费机制，花费了好几个小时，主要陷入到了一个误区。
+ * 如果胖友有使用过 RocketMQ 的并发消费，会发现只要创建一个 RocketMQ Consumer 对象，然后 Consumer 拉取完消息之后，丢到 Consumer 的线程池中执行消费，从而实现并发消费。
+ * 而在 Spring-Kafka 提供的并发消费，会发现需要创建多个 Kafka Consumer 对象，并且每个 Consumer 都单独分配一个线程，然后 Consumer 拉取完消息之后，在各自的线程中执行消费。
+ * 所以下面这里例子配置了2 的意思是 由这个JVM实例中，有两个消费者，也即同一个分区里的消息一定顺序消费。 因为一个消费者组里的消费者只会消费一个分区
+ * 而RocketMQ是线程池，如果配置多个的话，一个消费者组里的消费者因为使用线程池，那么就无法保证消息顺序消费  因为线程执行速度先后不确定  所以有个 consumeMode = ConsumeMode.ORDERLY
  */
 @Slf4j
 @Component

@@ -21,7 +21,7 @@ public class Demo02Consumer implements RocketMQListener<BaseMessageDTO> {
 
     @Override
     public void onMessage(BaseMessageDTO message) {
-        // 生产者批量发送  消费者逐条消费
+        // 生产者批量发送  消费者逐条消费  非有序  由线程池并发消费
         log.info("[Demo02Consumer.onMessage][线程编号:{} 消息内容:{}]", Thread.currentThread().getId(), message);
     }
 

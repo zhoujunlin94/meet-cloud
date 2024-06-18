@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @RocketMQMessageListener(
         topic = "TOPIC_DEMO06",
         consumerGroup = "TOPIC_DEMO06-consumer-group",
-        // 设置为顺序消费
+        // 设置为顺序消费 (单线程消费-保证有序   默认多线程消费)
         consumeMode = ConsumeMode.ORDERLY
 )
 public class Demo06Consumer implements RocketMQListener<BaseMessageDTO> {
